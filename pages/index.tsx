@@ -54,7 +54,7 @@ const Home: NextPage = () => {
         {response.body.matchedUser.badges.map((badge, index)=>{
           return(
             <div className={styles.card} key={index}>
-              {/* <img src={badge.medal.config.iconGif} alt="icon" width={64} height={64} title={badge.displayName}/> */}
+              <img src={badge.medal.config.iconGif} alt="icon" width={64} height={64} title={badge.displayName}/>
               <p>{badge.shortName}</p>
               <h6>{badge.creationDate}</h6>
             </div>
