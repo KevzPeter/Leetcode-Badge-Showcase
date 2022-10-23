@@ -9,7 +9,10 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "graphql": "^16.6.0",
     "graphql-request": "^5.0.0",
+    "html-to-image": "^1.10.8",
+    "lodash": "^4.17.21",
     "next": "12.3.1",
     "react": "18.2.0",
     "react-dom": "18.2.0"
