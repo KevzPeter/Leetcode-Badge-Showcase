@@ -15,30 +15,17 @@ const Home: NextPage = () => {
   useEffect(()=>{
     if(router.isReady){
       const {username} = router.query;
-      getBadgeStats(username);
+      //getBadgeStats(username);
     }
   }, [router.isReady])
 
-  // useEffect(()=>{
-  //   if (ref.current === null || !badges) {
-  //     return
+  // const getBadgeStats = async (username:any) => {
+  //   const response = await fetch(`/api/?username=${username}`);
+  //   const data = await response.json();
+  //   if(data.status === 'success'){
+  //     setResponse(data.body);
   //   }
-  //   toSvg(ref.current)
-  //    .then(function (dataUrl) {
-  //      let svg = decodeURIComponent(dataUrl.split(',')[1])
-  //      console.log(svg);
-       
-  //      document.body.parentElement.innerHTML = svg          
-  //    });
-  // }, [badges])
-
-  const getBadgeStats = async (username:any) => {
-    const response = await fetch(`/api/?username=${username}`);
-    const data = await response.json();
-    if(data.status === 'success'){
-      setResponse(data.body);
-    }
-  }
+  // }
 
   return (
     <div className={styles.container}>
@@ -47,13 +34,8 @@ const Home: NextPage = () => {
         <meta name="description" content="Showcase your Leetcode badges on your Github readme page" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className={styles.main}>
-        {response?.length > 0 && <div className={styles.showCase}>
-          <h4>LeetCode Badge List</h4>
-          {response.map((category:Object, index:number)=>{
-            return(<Category category={category} key={index}/>)
-          })}
-        </div>}
+      <main className={styles.container}>
+        <p>Check out the <a href="https://github.com/KevzPeter/Leetcode-Badge-Showcase">Github Page</a> for more info!</p>
       </main>
     </div>
   )
