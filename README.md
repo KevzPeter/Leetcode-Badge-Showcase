@@ -2,7 +2,7 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="https://github.com/othneildrew/Best-README-Template">
+  <a href="https://github.com/KevzPeter/Leetcode-Badge-Showcase">
     <img src="images/guardian.png" alt="Logo" width="80" height="80">
   </a>
 
@@ -20,7 +20,7 @@
 </div>
 
 <div align="center">
-<img src="https://leetcode-badge-showcase-gvxyt9coh-kevzpeter.vercel.app/api?username=kevzpeter" />
+<img src="https://leetcode-badge-showcase.vercel.app/api?username=kevzpeter" />
 </div>
 
 ## ⭐ Add to your README page ⭐
