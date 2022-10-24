@@ -58,6 +58,11 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
                     badge.icon = BadgeIconImg;
                 }
             }
+            // Converting Leetcode logo to inline base64 to prevent Github CSP violation.
+            const imgURL = "https://leetcode-badge-showcase.vercel.app/leetcode-logo.png";
+            const response = await axios.get(`https://leetcode-badge-showcase.vercel.app/api/proxy`, { params: { img: imgURL } });
+            const imgSource = response.data;
+
             data = _.groupBy(data.matchedUser.badges, "category");
             let arr = []
             for (const [category, badges] of Object.entries(data)) {
@@ -70,7 +75,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
                 res.setHeader('Cache-Control', 's-maxage=60, stale-while-revalidate');
                 res.setHeader('Content-Type', 'image/svg+xml');
                 res.statusCode = 200;
-                res.send(generateSvg(arr, username));
+                res.send(generateSvg(arr, username, imgSource));
             }
         }
     }
