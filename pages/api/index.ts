@@ -2,13 +2,14 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
 const graphqlRequest = require("graphql-request");
 const _ = require('lodash');
+import { generateSvg } from '../../utils/generateSVG';
 
 type Data = {
     status: string,
     body: string | Object
 }
 
-export default function handler(req: NextApiRequest, res: NextApiResponse<Data>): Promise<any> {
+export default function handler(req: NextApiRequest, res: NextApiResponse<any>): Promise<any> {
     try {
         const username: string = <string>(req.query.username);
         if (!username || <string>username.trim() === '') {
@@ -40,10 +41,10 @@ export default function handler(req: NextApiRequest, res: NextApiResponse<Data>)
                     for (const [category, badges] of Object.entries(data)) {
                         arr.push({ categoryName: category, badges });
                     }
-                    res.status(200).send({
-                        status: 'success',
-                        body: arr
-                    });
+                    res.setHeader('Cache-Control', 's-maxage=60, stale-while-revalidate');
+                    res.setHeader('Content-Type', 'image/svg+xml');
+                    res.statusCode = 200;
+                    res.send(generateSvg(arr));
                 })
                 .catch((err: any) => {
                     console.error(err.message)

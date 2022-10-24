@@ -4,8 +4,6 @@ import Image from 'next/image'
 import styles from '../styles/Home.module.scss'
 import { useRouter } from 'next/router';
 import { useEffect, useState, useRef, useCallback } from 'react';
-import response from "../config/response.json";
-import { toPng, toSvg } from 'html-to-image';
 import Category from '../components/Category';
 
 const Home: NextPage = () => {
@@ -50,7 +48,7 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={styles.main}>
-        {response && <div className={styles.showCase}>
+        {response?.length > 0 && <div className={styles.showCase}>
           <h4>LeetCode Badge List</h4>
           {response.map((category:Object, index:number)=>{
             return(<Category category={category} key={index}/>)
