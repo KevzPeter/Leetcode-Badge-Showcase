@@ -1,0 +1,288 @@
+{
+    "status": "success",
+    "body": {
+        "matchedUser": {
+            "badges": [
+                {
+                    "id": "1086895",
+                    "name": "Daily Coding Challenge",
+                    "shortName": "Sep Badge",
+                    "displayName": "Sep LeetCoding Challenge",
+                    "icon": "/static/images/badges/dcc-2022-9.png",
+                    "hoverText": "Sep LeetCoding Challenge",
+                    "medal": {
+                        "slug": "dcc-september-2022",
+                        "config": {
+                            "iconGif": "https://leetcode.com/static/images/badges/2022/gif/2022-09.gif",
+                            "iconGifBackground": "https://assets.leetcode.com/static_assets/others/badge-background.png"
+                        }
+                    },
+                    "creationDate": "2022-09-30",
+                    "category": "DCC"
+                },
+                {
+                    "id": "997601",
+                    "name": "Daily Coding Challenge",
+                    "shortName": "Aug Badge",
+                    "displayName": "Aug LeetCoding Challenge",
+                    "icon": "/static/images/badges/dcc-2022-8.png",
+                    "hoverText": "Aug LeetCoding Challenge",
+                    "medal": {
+                        "slug": "dcc-august-2022",
+                        "config": {
+                            "iconGif": "https://leetcode.com/static/images/badges/2022/gif/2022-08.gif",
+                            "iconGifBackground": "https://assets.leetcode.com/static_assets/others/badge-background.png"
+                        }
+                    },
+                    "creationDate": "2022-08-31",
+                    "category": "DCC"
+                },
+                {
+                    "id": "921759",
+                    "name": "Daily Coding Challenge",
+                    "shortName": "Jul Badge",
+                    "displayName": "Jul LeetCoding Challenge",
+                    "icon": "/static/images/badges/dcc-2022-7.png",
+                    "hoverText": "Jul LeetCoding Challenge",
+                    "medal": {
+                        "slug": "dcc-july-2022",
+                        "config": {
+                            "iconGif": "https://leetcode.com/static/images/badges/2022/gif/2022-07.gif",
+                            "iconGifBackground": "https://assets.leetcode.com/static_assets/others/badge-background.png"
+                        }
+                    },
+                    "creationDate": "2022-07-31",
+                    "category": "DCC"
+                },
+                {
+                    "id": "853431",
+                    "name": "Daily Coding Challenge",
+                    "shortName": "Jun Badge",
+                    "displayName": "Jun LeetCoding Challenge",
+                    "icon": "/static/images/badges/dcc-2022-6.png",
+                    "hoverText": "Jun LeetCoding Challenge",
+                    "medal": {
+                        "slug": "dcc-june-2022",
+                        "config": {
+                            "iconGif": "https://leetcode.com/static/images/badges/2022/gif/2022-06.gif",
+                            "iconGifBackground": "https://assets.leetcode.com/static_assets/others/badge-background.png"
+                        }
+                    },
+                    "creationDate": "2022-06-30",
+                    "category": "DCC"
+                },
+                {
+                    "id": "781784",
+                    "name": "Daily Coding Challenge",
+                    "shortName": "May Badge",
+                    "displayName": "May LeetCoding Challenge",
+                    "icon": "/static/images/badges/dcc-2022-5.png",
+                    "hoverText": "May LeetCoding Challenge",
+                    "medal": {
+                        "slug": "dcc-may-2022",
+                        "config": {
+                            "iconGif": "https://leetcode.com/static/images/badges/2022/gif/2022-05.gif",
+                            "iconGifBackground": "https://assets.leetcode.com/static_assets/others/badge-background.png"
+                        }
+                    },
+                    "creationDate": "2022-05-31",
+                    "category": "DCC"
+                },
+                {
+                    "id": "728920",
+                    "name": "Daily Coding Challenge",
+                    "shortName": "Apr Badge",
+                    "displayName": "Apr LeetCoding Challenge",
+                    "icon": "/static/images/badges/dcc-2022-4.png",
+                    "hoverText": "Apr LeetCoding Challenge",
+                    "medal": {
+                        "slug": "dcc-april-2022",
+                        "config": {
+                            "iconGif": "https://leetcode.com/static/images/badges/2022/gif/2022-04.gif",
+                            "iconGifBackground": "https://assets.leetcode.com/static_assets/others/badge-background.png"
+                        }
+                    },
+                    "creationDate": "2022-04-30",
+                    "category": "DCC"
+                },
+                {
+                    "id": "675254",
+                    "name": "Daily Coding Challenge",
+                    "shortName": "Mar Badge",
+                    "displayName": "Mar LeetCoding Challenge",
+                    "icon": "/static/images/badges/dcc-2022-3.png",
+                    "hoverText": "Mar LeetCoding Challenge",
+                    "medal": {
+                        "slug": "dcc-march-2022",
+                        "config": {
+                            "iconGif": "https://leetcode.com/static/images/badges/2022/gif/2022-03.gif",
+                            "iconGifBackground": "https://assets.leetcode.com/static_assets/others/badge-background.png"
+                        }
+                    },
+                    "creationDate": "2022-03-31",
+                    "category": "DCC"
+                },
+                {
+                    "id": "614325",
+                    "name": "Daily Coding Challenge",
+                    "shortName": "Feb Badge",
+                    "displayName": "Feb LeetCoding Challenge",
+                    "icon": "/static/images/badges/dcc-2022-2.png",
+                    "hoverText": "Feb LeetCoding Challenge",
+                    "medal": {
+                        "slug": "dcc-february-2022",
+                        "config": {
+                            "iconGif": "https://leetcode.com/static/images/badges/2022/gif/2022-02.gif",
+                            "iconGifBackground": "https://assets.leetcode.com/static_assets/others/badge-background.png"
+                        }
+                    },
+                    "creationDate": "2022-02-28",
+                    "category": "DCC"
+                },
+                {
+                    "id": "561118",
+                    "name": "Daily Coding Challenge",
+                    "shortName": "Jan Badge",
+                    "displayName": "Jan LeetCoding Challenge",
+                    "icon": "/static/images/badges/dcc-2022-1.png",
+                    "hoverText": "Jan LeetCoding Challenge",
+                    "medal": {
+                        "slug": "dcc-january-2022",
+                        "config": {
+                            "iconGif": "https://leetcode.com/static/images/badges/2022/gif/2022-01.gif",
+                            "iconGifBackground": "https://assets.leetcode.com/static_assets/others/badge-background.png"
+                        }
+                    },
+                    "creationDate": "2022-01-31",
+                    "category": "DCC"
+                },
+                {
+                    "id": "512287",
+                    "name": "Daily Coding Challenge",
+                    "shortName": "Dec Badge",
+                    "displayName": "Dec LeetCoding Challenge",
+                    "icon": "/static/images/badges/dcc-2021-12.png",
+                    "hoverText": "Dec LeetCoding Challenge",
+                    "medal": {
+                        "slug": "dcc-december-2021",
+                        "config": {
+                            "iconGif": "https://leetcode.com/static/images/badges/2021/gif/2021-12.gif",
+                            "iconGifBackground": "https://assets.leetcode.com/static_assets/others/badge-background.png"
+                        }
+                    },
+                    "creationDate": "2021-12-31",
+                    "category": "DCC"
+                },
+                {
+                    "id": "450083",
+                    "name": "Daily Coding Challenge",
+                    "shortName": "Nov Badge",
+                    "displayName": "Nov LeetCoding Challenge",
+                    "icon": "/static/images/badges/dcc-2021-11.png",
+                    "hoverText": "Nov LeetCoding Challenge",
+                    "medal": {
+                        "slug": "dcc-november-2021",
+                        "config": {
+                            "iconGif": "https://leetcode.com/static/images/badges/2021/gif/2021-11.gif",
+                            "iconGifBackground": "https://assets.leetcode.com/static_assets/others/badge-background.png"
+                        }
+                    },
+                    "creationDate": "2021-11-30",
+                    "category": "DCC"
+                },
+                {
+                    "id": "409759",
+                    "name": "Daily Coding Challenge",
+                    "shortName": "Oct Badge",
+                    "displayName": "Oct LeetCoding Challenge",
+                    "icon": "/static/images/badges/dcc-2021-10.png",
+                    "hoverText": "Oct LeetCoding Challenge",
+                    "medal": {
+                        "slug": "dcc-october-2021",
+                        "config": {
+                            "iconGif": "https://leetcode.com/static/images/badges/2021/gif/2021-10.gif",
+                            "iconGifBackground": "https://assets.leetcode.com/static_assets/others/badge-background.png"
+                        }
+                    },
+                    "creationDate": "2021-10-31",
+                    "category": "DCC"
+                },
+                {
+                    "id": "367747",
+                    "name": "Daily Coding Challenge",
+                    "shortName": "Sep Badge",
+                    "displayName": "Sep LeetCoding Challenge",
+                    "icon": "/static/images/badges/dcc-2021-9.png",
+                    "hoverText": "Sep LeetCoding Challenge",
+                    "medal": {
+                        "slug": "dcc-september-2021",
+                        "config": {
+                            "iconGif": "https://leetcode.com/static/images/badges/2021/gif/2021-09.gif",
+                            "iconGifBackground": "https://assets.leetcode.com/static_assets/others/badge-background.png"
+                        }
+                    },
+                    "creationDate": "2021-09-30",
+                    "category": "DCC"
+                },
+                {
+                    "id": "576866",
+                    "name": "Study Plan Award",
+                    "shortName": "Dynamic Programming I",
+                    "displayName": "Dynamic Programming I",
+                    "icon": "https://assets.leetcode.com/static_assets/others/DP_I.png",
+                    "hoverText": "Study Plan Award",
+                    "medal": {
+                        "slug": "dynamic-programming-i",
+                        "config": {
+                            "iconGif": "https://assets.leetcode.com/static_assets/others/DP_I.png",
+                            "iconGifBackground": "https://assets.leetcode.com/static_assets/others/DP_I.png"
+                        }
+                    },
+                    "creationDate": "2022-02-02",
+                    "category": "STUDY_PLAN"
+                },
+                {
+                    "id": "551349",
+                    "name": "Study Plan Award",
+                    "shortName": "Data Structure I",
+                    "displayName": "Data Structure I",
+                    "icon": "https://assets.leetcode.com/static_assets/others/DS_I.png",
+                    "hoverText": "Study Plan Award",
+                    "medal": {
+                        "slug": "data-structure-i",
+                        "config": {
+                            "iconGif": "https://assets.leetcode.com/static_assets/others/DS_I.png",
+                            "iconGifBackground": "https://assets.leetcode.com/static_assets/others/DS_I.png"
+                        }
+                    },
+                    "creationDate": "2022-01-26",
+                    "category": "STUDY_PLAN"
+                },
+                {
+                    "id": "340506",
+                    "name": "Study Plan Award",
+                    "shortName": "Algorithm I",
+                    "displayName": "Algorithm I",
+                    "icon": "https://assets.leetcode.com/static_assets/others/algorithm_I.png",
+                    "hoverText": "Study Plan Award",
+                    "medal": {
+                        "slug": "algorithm-i",
+                        "config": {
+                            "iconGif": "https://assets.leetcode.com/static_assets/others/algorithm_I.png",
+                            "iconGifBackground": "https://assets.leetcode.com/static_assets/others/algorithm_I.png"
+                        }
+                    },
+                    "creationDate": "2021-09-09",
+                    "category": "STUDY_PLAN"
+                }
+            ],
+            "upcomingBadges": [
+                {
+                    "name": "Oct LeetCoding Challenge",
+                    "icon": "/static/images/badges/dcc-2022-10.png",
+                    "progress": 74
+                }
+            ]
+        }
+    }
+}
