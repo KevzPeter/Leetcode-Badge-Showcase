@@ -43,6 +43,18 @@ a {
   color: white;
   border-radius: 1rem;
 }
+.showCase hr{
+  width: 100%;
+  height: 1px;
+  border-width: 0;
+  color: #B6C1AC;
+  background-color: #B6C1AC;
+}
+.showCase h4{
+  display: flex;
+  align-items: center;
+  margin: 0.6rem 0;
+}
 .category #title {
     color : #B6C1AC;
 }
@@ -73,11 +85,6 @@ a {
   border-color: #0070f3;
 }
 
-.badge h2 {
-  margin: 0 0 1rem 0;
-  font-size: 1.5rem;
-}
-
 .badge p {
   margin: 0;
   font-size: 0.9rem;
@@ -91,14 +98,4 @@ a {
   font-weight: 600;
   color: #808080;
 }
-.logo {
-  height: 1em;
-  margin-left: 0.5rem;
-}
-
-@media (max-width: 600px) {
-  .grid {
-    width: 100%;
-    flex-direction: column;
-  }
-}`;
+`;

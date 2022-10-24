@@ -70,7 +70,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
                 res.setHeader('Cache-Control', 's-maxage=60, stale-while-revalidate');
                 res.setHeader('Content-Type', 'image/svg+xml');
                 res.statusCode = 200;
-                res.send(generateSvg(arr));
+                res.send(generateSvg(arr, username));
             }
         }
     }
