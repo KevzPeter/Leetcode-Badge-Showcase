@@ -52,7 +52,7 @@ export default function handler(req: NextApiRequest, res: NextApiResponse<any>):
                     for (const [category, badges] of Object.entries(data)) {
                         arr.push({ categoryName: category, badges });
                     }
-                    if (jsonFlag.toLowerCase() === 'true') {
+                    if (jsonFlag?.toLowerCase() === 'true') {
                         res.status(200).send({ status: "success", body: arr });
                     }
                     else {
