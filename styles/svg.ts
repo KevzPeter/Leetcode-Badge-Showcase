@@ -1,3 +1,29 @@
+import css from 'styled-jsx/css';
+
+export const allStyles = css.global`
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-weight: 500;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+@media (prefers-color-scheme: dark) {
+  html {
+    color-scheme: light;
+  }
+}
 .main {
   min-height: 100vh;
   padding:0;
@@ -8,7 +34,7 @@
   justify-content: center;
   align-items: left;
 }
-.showCase{
+.showCase {
   background-color: #2B2B2B;
   display: flex;
   flex-direction: column;
@@ -17,10 +43,8 @@
   color: white;
   border-radius: 1rem;
 }
-.category{
-  #title{
+.category #title {
     color : #B6C1AC;
-  }
 }
 
 .grid {
@@ -48,6 +72,7 @@
   color: #0070f3;
   border-color: #0070f3;
 }
+
 .badge h2 {
   margin: 0 0 1rem 0;
   font-size: 1.5rem;
@@ -59,7 +84,7 @@
   font-weight: 500;
   line-height: 1.5;
 }
-.badge h6{
+.badge h6 {
   margin: 0;
   font-size: 0.8rem;
   line-height: 1.5;
@@ -70,13 +95,10 @@
   height: 1em;
   margin-left: 0.5rem;
 }
-.container{
-  display: flex;
-  justify-content: center;
-}
+
 @media (max-width: 600px) {
   .grid {
     width: 100%;
     flex-direction: column;
   }
-}
+}`;

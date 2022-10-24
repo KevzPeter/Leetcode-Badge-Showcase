@@ -9,9 +9,9 @@ const categoryEnum = {
 
 const Category=({category})=>{
     return(
-        <div className={styles.category}>
-            <p id={styles.title}>{categoryEnum[category.categoryName]}</p>
-            <div className={styles.grid}>
+        <div className="category">
+            <p id="title">{categoryEnum[category.categoryName]}</p>
+            <div className="grid">
                 {category.badges.map((badge : Object, index : number) => {
                     return(<Badge badge={badge} key={index}/>)
                 })}
