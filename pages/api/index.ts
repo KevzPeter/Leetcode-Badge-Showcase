@@ -48,7 +48,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
                     badge.icon = "https://leetcode.com" + badge.icon;
                 }
                 try {
-                    const { data } = await axios.get(`http://localhost:3000/api/proxy`, {
+                    const { data } = await axios.get(`http://leetcode-badge-showcase.vercel.app/api/proxy`, {
                         params: {
                             img: badge.icon,
                         },
