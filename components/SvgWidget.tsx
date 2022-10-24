@@ -12,7 +12,7 @@ export default function SvgWidget({response, username}): JSX.Element {
                         <div className="showCase">
                             <h4>
                                 <img src="/leetcode-logo.png" alt="LeetCode Logo" title="LeetCode Logo" width={48} height={48}/>&nbsp;
-                                <a href={`https://leetcode.com/${username}`} target="_blank">{username}</a>&nbsp;LeetCode Badges
+                                <a href={`https://leetcode.com/${username}`} target="_blank" rel="noreferrer">{username}</a>&nbsp;LeetCode Badges
                             </h4>
                             <hr />
                             {response?.map((category:Object, index:number)=>{
