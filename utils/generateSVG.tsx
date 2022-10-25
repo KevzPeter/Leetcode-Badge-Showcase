@@ -12,7 +12,7 @@ function Styles() {
 /**
  * Returns SVG as a string.
  */
-export function generateSvg(response, username, imgSource): string {
+export function generateSvg(response, username, imgSource, theme): string {
     let height = 100;
     response.forEach(category=>{
         height += 53;
@@ -20,7 +20,7 @@ export function generateSvg(response, username, imgSource): string {
     })
     const width = 600;
     const svgBody = ReactDOMServer.renderToStaticMarkup(
-        <SvgWidget response={response} username={username} imgSource={imgSource}/>
+        <SvgWidget response={response} username={username} imgSource={imgSource} theme={theme}/>
     );
 
     return `

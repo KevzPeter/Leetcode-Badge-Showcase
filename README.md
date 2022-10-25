@@ -1,4 +1,4 @@
-<a name="readme-top"></a>
+<a id="readme-top"></a>
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
@@ -26,8 +26,12 @@
 ## ⭐ Add to your README page ⭐
 <br/>
 
-Add the following line to your Github README.md page and replace {your-leetcode-username}:
+Add the following line to your Github README.md page and replace {your-leetcode-username} ⤵️
+
+`<img src="https://leetcode-badge-showcase.vercel.app/api?username={your-leetcode-username}" alt="LeetCode Badges"/>`
  
+ Or even this way ⤵️
+
 `![LeetCode Badges](https://leetcode-badge-showcase.vercel.app/api?username={your-leetcode-username})`
 
 For example, if your Leetcode username is "kevzpeter", add the following line:
@@ -35,23 +39,29 @@ For example, if your Leetcode username is "kevzpeter", add the following line:
 `![LeetCode Badges](https://leetcode-badge-showcase.vercel.app/api?username=kevzpeter)`
 
 <br/>
-<!-- TABLE OF CONTENTS -->
-<details>
-  <summary>Table of Contents</summary>
-  <ol>
-    <li>
-      <a href="#built-with">Built With</a>
-    </li>
-    <li>
-      <a href="#set-up-your-own-server">Set up your own server</a>
-    </li>
-    <li><a href="#contributing">Contributing</a></li>
-  </ol>
-</details>
+
+## 🎨 THEMES 🎨
+
+Want to spice up the look and feel of your badge showcase?
+You can choose your favorite among 8 different themes!
+
+- light (default)
+- dark
+- sky
+- beach
+- mint
+- leafy
+- purple-gang
+- orange
+
+Simply add the *theme* parameter to the url like so:
+
+`<img src="https://leetcode-badge-showcase.vercel.app/api?username={your-leetcode-username}&theme={your-theme}" alt="LeetCode Badges"/>`
+
 <br/>
 
 <!-- BUILT WITH -->
-## Built With
+## 🔧 Built With 🔧
 <br/>
 
 * [![Next][Next.js]][Next-url]
@@ -60,16 +70,21 @@ For example, if your Leetcode username is "kevzpeter", add the following line:
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- SET UP -->
-## Set Up your own Server
+## 🏗️ Set Up your own Server 🏗️
 
+* Make sure you have Node.js installed
 * Clone the repository
-* Deploy to Vercel
-* Replace https://{your-vercel-deployment}/api?username={your-leetcode-username} to view the results
+* Run *npm i* in the root directory
+* Run *npm run dev* to make sure everything's working fine
+* Replace BASEURL in *utils/constants.ts* to the deployment url of your choice 
+* Deploy to Vercel with the same deployment url
+* Head over to https://{your-vercel-deployment-url}/api?username={your-leetcode-username} to view the results
+* Oh, and make sure to update the links in your README file as well :P
 
 <br/>
 
 <!-- CONTRIBUTING -->
-## Contributing
+## 🙌🏼 Contributing 🙌🏼
 
 If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement".
 Don't forget to give the project a star! Thanks again!
@@ -106,11 +121,3 @@ Don't forget to give the project a star! Thanks again!
 [Vue-url]: https://vuejs.org/
 [Angular.io]: https://img.shields.io/badge/Angular-DD0031?style=for-the-badge&logo=angular&logoColor=white
 [Angular-url]: https://angular.io/
-[Svelte.dev]: https://img.shields.io/badge/Svelte-4A4A55?style=for-the-badge&logo=svelte&logoColor=FF3E00
-[Svelte-url]: https://svelte.dev/
-[Laravel.com]: https://img.shields.io/badge/Laravel-FF2D20?style=for-the-badge&logo=laravel&logoColor=white
-[Laravel-url]: https://laravel.com
-[Bootstrap.com]: https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white
-[Bootstrap-url]: https://getbootstrap.com
-[JQuery.com]: https://img.shields.io/badge/jQuery-0769AD?style=for-the-badge&logo=jquery&logoColor=white
-[JQuery-url]: https://jquery.com 

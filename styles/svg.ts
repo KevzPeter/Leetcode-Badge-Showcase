@@ -35,36 +35,32 @@ a {
   align-items: left;
 }
 .showCase {
-  background-color: #2B2B2B;
   display: flex;
   flex-direction: column;
   padding: 1rem 1.5rem;
-  max-width: 600px;
-  color: white;
+  max-width: 570px;
   border-radius: 1rem;
+  border: 1px solid #495057;
 }
 .showCase hr{
   width: 100%;
   height: 1px;
-  border-width: 0;
-  color: #B6C1AC;
-  background-color: #B6C1AC;
+  border: none;
 }
 .showCase h4{
   display: flex;
   align-items: center;
   margin: 0.6rem 0;
 }
-.category #title {
-    color : #B6C1AC;
+.category p{
+  font-weight: 600;
 }
-
 .grid {
   display: flex;
   align-items: center;
   justify-content: left;
   flex-wrap: wrap;
-  max-width: 600px;
+  max-width: 570px;
 }
 
 .badge {
@@ -75,14 +71,7 @@ a {
   text-decoration: none;
   border-radius: 10px;
   transition: color 0.15s ease, border-color 0.15s ease;
-  max-width: 300px;
-}
-
-.badge:hover,
-.badge:focus,
-.badge:active {
-  color: #0070f3;
-  border-color: #0070f3;
+  max-width: 100px;
 }
 
 .badge p {
@@ -90,12 +79,16 @@ a {
   font-size: 0.9rem;
   font-weight: 500;
   line-height: 1.5;
+  overflow: hidden;
+  display: inline-block;
+  text-overflow: ellipsis;
+  max-width: 100px;
+  white-space: nowrap;
 }
 .badge h6 {
   margin: 0;
   font-size: 0.8rem;
   line-height: 1.5;
   font-weight: 600;
-  color: #808080;
 }
 `;

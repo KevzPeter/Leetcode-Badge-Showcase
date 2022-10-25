@@ -1,0 +1,42 @@
+{
+    "light" : {
+        "background" : "#ffffff",
+        "colorPrimary" : "#0070f3",
+        "colorSecondary" : "#034078"
+    },
+    "dark" : {
+        "background" : "#2b2b2b",
+        "colorPrimary" : "#fff",
+        "colorSecondary" : "#B6C1AC"
+    },
+    "beach" : {
+        "background" : "#003566",
+        "colorPrimary" : "#ffd60a",
+        "colorSecondary" : "#ffc300"
+    },
+    "sky" : {
+        "background" : "#3a86ff",
+        "colorPrimary" : "#fff",
+        "colorSecondary" : "#caf0f8"
+    },
+    "purple-gang" : {
+        "background" : "#7209b7",
+        "colorPrimary" : "#ff90b3",
+        "colorSecondary" : "#ffc2e2"
+    },
+    "mint" : {
+        "background" : "#adefd1",
+        "colorPrimary" : "#00203f",
+        "colorSecondary" : "#1b4332"
+    },
+    "leafy" : {
+        "background" : "#386641",
+        "colorPrimary" : "#f2e8cf",
+        "colorSecondary" : "#c1ff9b"
+    },
+    "orange" : {
+        "background" : "#f78154",
+        "colorPrimary" : "#023e8a",
+        "colorSecondary" : "#03045e"
+    }
+}
