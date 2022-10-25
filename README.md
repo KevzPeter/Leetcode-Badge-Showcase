@@ -38,6 +38,7 @@ For example, if your Leetcode username is "kevzpeter", add the following line:
 
 `![LeetCode Badges](https://leetcode-badge-showcase.vercel.app/api?username=kevzpeter)`
 
+👉🏼 *Image not rendering? Simply refresh the page!* 
 <br/>
 
 ## 🎨 THEMES 🎨
