@@ -5,16 +5,21 @@ const _ = require('lodash');
 import { generateSvg } from '../../utils/generateSVG';
 import BadgeIconImg from "../../public/Badge-icon.png";
 const axios = require('axios');
+import { BASEURL, LEETCODE_BASEURL, THEME_NAMES } from "../../utils/config";
 
 type Data = {
     status: string,
     body: string | Object
 }
+interface Params {
+    username: string,
+    jsonFlag: string,
+    theme: string
+}
 
-export default async function handler(req: NextApiRequest, res: NextApiResponse<any>): Promise<any> {
+export default async function handler(req: NextApiRequest, res: NextApiResponse<Data | string>): Promise<any> {
     try {
-        const username: string = <string>(req.query.username);
-        const jsonFlag: string = <string>(req.query.json);
+        let { username, jsonFlag, theme }: Params = <any>req.query;
 
         if (!username || <string>username.trim() === '') {
             res.status(400).send({
@@ -23,6 +28,13 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
             });
         }
         else {
+            if (!theme || theme.length === 0) {
+                theme = 'light';
+            }
+            else theme = theme.trim().toLowerCase();
+            if (!THEME_NAMES.includes(theme)) {
+                theme = 'light';
+            }
             const gqlQuery = graphqlRequest.gql`
             query userBadges($username: String!) 
             {  matchedUser(username: $username) 
@@ -38,17 +50,17 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
                 }
             }`;
             const variables = { username };
-            let data = await graphqlRequest.request("https://leetcode.com/graphql/", gqlQuery, variables);
+            let data = await graphqlRequest.request(`${LEETCODE_BASEURL}/graphql/`, gqlQuery, variables);
             if (data.matchedUser.badges.length === 0) {
                 res.status(200).send({ status: "success", body: "The user has unlocked 0 badges" });
                 return;
             }
             for (let badge of data.matchedUser.badges) {
                 if (badge.icon.startsWith("/static/")) {
-                    badge.icon = "https://leetcode.com" + badge.icon;
+                    badge.icon = LEETCODE_BASEURL + badge.icon;
                 }
                 try {
-                    const { data } = await axios.get(`https://leetcode-badge-showcase.vercel.app/api/proxy`, {
+                    const { data } = await axios.get(`${BASEURL}/api/proxy`, {
                         params: {
                             img: badge.icon,
                         },
@@ -59,8 +71,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
                 }
             }
             // Converting Leetcode logo to inline base64 to prevent Github CSP violation.
-            const imgURL = "https://leetcode-badge-showcase.vercel.app/leetcode-logo.png";
-            const response = await axios.get(`https://leetcode-badge-showcase.vercel.app/api/proxy`, { params: { img: imgURL } });
+            const imgURL = `${BASEURL}/leetcode-logo.png`;
+            const response = await axios.get(`${BASEURL}/api/proxy`, { params: { img: imgURL } });
             const imgSource = response.data;
 
             data = _.groupBy(data.matchedUser.badges, "category");
@@ -75,7 +87,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
                 res.setHeader('Cache-Control', 's-maxage=60, stale-while-revalidate');
                 res.setHeader('Content-Type', 'image/svg+xml');
                 res.statusCode = 200;
-                res.send(generateSvg(arr, username, imgSource));
+                res.send(generateSvg(arr, username, imgSource, theme));
             }
         }
     }
