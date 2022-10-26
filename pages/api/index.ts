@@ -1,21 +1,11 @@
-// Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from 'next'
-const graphqlRequest = require("graphql-request");
-const _ = require('lodash');
+import { gql, request } from "graphql-request";
+import { groupBy } from 'lodash';
 import { generateSvg } from '../../utils/generateSVG';
 import BadgeIconImg from "../../public/Badge-icon.png";
-const axios = require('axios');
+import axios from 'axios';
 import { BASEURL, LEETCODE_BASEURL, THEME_NAMES } from "../../utils/config";
-
-type Data = {
-    status: string,
-    body: string | Object
-}
-interface Params {
-    username: string,
-    jsonFlag: string,
-    theme: string
-}
+import { Data, Params, GraphQLResponse } from '../../utils/models';
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse<Data | string>): Promise<any> {
     try {
@@ -35,7 +25,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
             if (!THEME_NAMES.includes(theme)) {
                 theme = 'light';
             }
-            const gqlQuery = graphqlRequest.gql`
+            const gqlQuery = gql`
             query userBadges($username: String!) 
             {  matchedUser(username: $username) 
                 {    badges 
@@ -50,7 +40,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
                 }
             }`;
             const variables = { username };
-            let data = await graphqlRequest.request(`${LEETCODE_BASEURL}/graphql/`, gqlQuery, variables);
+            let data: GraphQLResponse = await request(`${LEETCODE_BASEURL}/graphql/`, gqlQuery, variables);
             if (data.matchedUser.badges.length === 0) {
                 res.status(200).send({ status: "success", body: "The user has unlocked 0 badges" });
                 return;
@@ -75,19 +65,19 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
             const response = await axios.get(`${BASEURL}/api/proxy`, { params: { img: imgURL } });
             const imgSource = response.data;
 
-            data = _.groupBy(data.matchedUser.badges, "category");
-            let arr = []
+            data = groupBy(data.matchedUser.badges, "category");
+            let responseData = []
             for (const [category, badges] of Object.entries(data)) {
-                arr.push({ categoryName: category, badges });
+                responseData.push({ categoryName: category, badges });
             }
             if (jsonFlag?.toLowerCase() === 'true') {
-                res.status(200).send({ status: "success", body: arr });
+                res.status(200).send({ status: "success", body: responseData });
             }
             else {
                 res.setHeader('Cache-Control', 's-maxage=60, stale-while-revalidate');
                 res.setHeader('Content-Type', 'image/svg+xml');
                 res.statusCode = 200;
-                res.send(generateSvg(arr, username, imgSource, theme));
+                res.send(generateSvg(responseData, username, imgSource, theme));
             }
         }
     }
