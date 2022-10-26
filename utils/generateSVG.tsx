@@ -3,22 +3,30 @@ import ReactDOMServer from 'react-dom/server';
 import { StyleRegistry, useStyleRegistry } from 'styled-jsx'
 import SvgWidget from '../components/SvgWidget';
 import { allStyles } from '../styles/svg';
-
-function Styles() {
-    const registry = useStyleRegistry()
-    const styles = registry.styles()
-    return <>{styles}</>
-  }
+/**
+ * 
+ * @param response:Array<any>
+ * @returns {height:number, width:number}
+ * Used to calculate dimensions of svg
+ */
+const calculateDimensions=(response:Array<any>)=>{
+    let height = 100;
+    let columns = 1;
+    response.forEach(category=>{
+        height += 53;
+        height += Math.ceil(category.badges.length / 4) * 190;
+        columns = Math.max(columns, category.badges.length);
+    })
+    let width = 320; //for 1, 2 columns
+    if(columns == 3) width = 450;
+    else if(columns >= 4) width = 570;
+    return {height, width};
+}
 /**
  * Returns SVG as a string.
  */
 export function generateSvg(response:Array<any>, username:string, imgSource:string, theme:string): string {
-    let height = 100;
-    response.forEach(category=>{
-        height += 53;
-        height += Math.ceil(category.badges.length / 4) * 190;
-    })
-    const width = 600;
+    const {height, width} = calculateDimensions(response);
     const svgBody = ReactDOMServer.renderToStaticMarkup(
         <SvgWidget response={response} username={username} imgSource={imgSource} theme={theme}/>
     );
