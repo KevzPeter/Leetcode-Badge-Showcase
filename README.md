@@ -59,6 +59,14 @@ Simply add the *theme* parameter to the url like so:
 
 `<img src="https://leetcode-badge-showcase.vercel.app/api?username={your-leetcode-username}&theme={your-theme}" alt="LeetCode Badges"/>`
 
+<div style="display:grid; gap: 1rem; grid-template-columns: 1fr 1fr 1fr; grid-template-rows: 10fr 10fr; justify-items: center;">
+<img src="https://leetcode-badge-showcase.vercel.app/api?username=lee215&theme=sky" title="Sky" alt="LeetCode Badges"/>
+<img src="https://leetcode-badge-showcase.vercel.app/api?username=neal_wu&theme=beach" title="Beach"  alt="LeetCode Badges"/>
+<img src="https://leetcode-badge-showcase.vercel.app/api?username=uwi&theme=dark" title="Dark"  alt="LeetCode Badges"/>
+<img src="https://leetcode-badge-showcase.vercel.app/api?username=lee215&theme=leafy" title="Leafy"  alt="LeetCode Badges"/>
+<img src="https://leetcode-badge-showcase.vercel.app/api?username=neal_wu&theme=purple-gang" title="Purple-Gang"  alt="LeetCode Badges"/>
+<img src="https://leetcode-badge-showcase.vercel.app/api?username=uwi&theme=mint" title="Mint"  alt="LeetCode Badges"/>
+</div>
 
 <br/>
 
