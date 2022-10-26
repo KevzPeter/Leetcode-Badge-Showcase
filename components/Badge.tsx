@@ -1,4 +1,3 @@
-import styles from "../styles/Home.module.scss"
 import themes from "../utils/themes.json";
 
 const Badge=({badge, theme})=>{

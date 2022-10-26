@@ -12,7 +12,7 @@ function Styles() {
 /**
  * Returns SVG as a string.
  */
-export function generateSvg(response, username, imgSource, theme): string {
+export function generateSvg(response:Array<any>, username:string, imgSource:string, theme:string): string {
     let height = 100;
     response.forEach(category=>{
         height += 53;

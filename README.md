@@ -59,6 +59,7 @@ Simply add the *theme* parameter to the url like so:
 
 `<img src="https://leetcode-badge-showcase.vercel.app/api?username={your-leetcode-username}&theme={your-theme}" alt="LeetCode Badges"/>`
 
+
 <br/>
 
 <!-- BUILT WITH -->
@@ -77,7 +78,7 @@ Simply add the *theme* parameter to the url like so:
 * Clone the repository
 * Run *npm i* in the root directory
 * Run *npm run dev* to make sure everything's working fine
-* Replace BASEURL in *utils/constants.ts* to the deployment url of your choice 
+* Replace BASEURL in *utils/config.ts* to the deployment url of your choice 
 * Deploy to Vercel with the same deployment url
 * Head over to https://{your-vercel-deployment-url}/api?username={your-leetcode-username} to view the results
 * Oh, and make sure to update the links in your README file as well :P
@@ -87,7 +88,7 @@ Simply add the *theme* parameter to the url like so:
 <!-- CONTRIBUTING -->
 ## 🙌🏼 Contributing 🙌🏼
 
-If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement".
+If you wanna add your custom theme or suggest enhancements, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement".
 Don't forget to give the project a star! Thanks again!
 
 1. Fork the Project

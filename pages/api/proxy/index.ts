@@ -1,8 +1,5 @@
 import axios from 'axios';
 import { NextApiRequest, NextApiResponse } from 'next';
-
-// const acceptedPrefix = 'https://leetcode.com';
-
 /**
  * Proxy endpoint that takes LeetCode badge image URL and returns its base64 representation. Images are
  * inlined into the final SVG because GitHub's Content Security Policy prohibits external images.

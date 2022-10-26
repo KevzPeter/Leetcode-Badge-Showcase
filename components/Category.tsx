@@ -1,4 +1,3 @@
-import styles from "../styles/Home.module.scss"
 import Badge from "./Badge";
 import themes from '../utils/themes.json';
 
