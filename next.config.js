@@ -5,6 +5,8 @@ const nextConfig = {
   },
   reactStrictMode: false,
   swcMinify: true,
+  // uncomment the line below before building docker image
+  // output: "standalone",
 }
 
 module.exports = nextConfig
