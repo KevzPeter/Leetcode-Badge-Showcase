@@ -4,7 +4,8 @@ export type Data = {
 }
 export interface Params {
     username: string,
-    jsonFlag: string,
+    filter: string,
+    json: string,
     theme: string
 }
 export interface Badge {
