@@ -70,6 +70,15 @@ Simply add the *theme* parameter to the url like so:
 
 <br/>
 
+## ✂️ FILTERS ✂️
+
+Wanna only show a specific set of badges ? Add a filter parameter like so :
+
+- Competitive: &filter=comp
+- Daily Challenge: &filter=daily
+- Study Plan: &filter=study
+
+
 <!-- BUILT WITH -->
 ## 🔧 Built With 🔧
 <br/>

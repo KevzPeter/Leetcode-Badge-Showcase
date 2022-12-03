@@ -11,7 +11,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
     try {
         let { username, theme, filter, json }: Params = <any>req.query;
         //username query validation
-        if (!username || <string>username.trim() === '') {
+        if (!username || username.trim() === '') {
             res.status(400).send({
                 status: 'error',
                 body: 'Missing username parameter in query'
