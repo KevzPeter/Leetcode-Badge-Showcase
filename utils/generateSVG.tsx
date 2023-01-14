@@ -18,7 +18,7 @@ const calculateDimensions=(response:Array<any>)=>{
         columns = Math.max(columns, category.badges.length);
     })
     let width = 320; //for 1, 2 columns
-    if(columns == 3) width = 450;
+    if(columns == 3) width = 360;
     else if(columns >= 4) width = 440;
     return {height, width};
 }

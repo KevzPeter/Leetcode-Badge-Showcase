@@ -33,9 +33,6 @@ const Home: NextPage = () => {
       if(filter)
         href += `&filter=${filter}`
       router.push(href)
-      setTimeout(()=>{
-        setLoading(false)
-      }, 3000)
     }
     else setLoading(false);
   }
