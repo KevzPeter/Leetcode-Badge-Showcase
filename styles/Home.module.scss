@@ -74,6 +74,50 @@
   display: flex;
   justify-content: center;
 }
+.container{
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.form{
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 4rem;
+
+  label{
+    color: #808080;
+    font-size: 0.8rem;
+  }
+  input, select{
+    border: 1px solid #2B2B2B;
+    border-radius: 10px;
+    padding: .5rem;
+    font-weight: 600;
+    color: #0070f3;
+    &:focus, &:active{
+      outline: none!important;
+      border: 1px solid #0070f3!important;
+    }
+  }
+  
+  .btn{
+    margin-top: 1rem;
+    border: none;
+    text-decoration: none;
+    padding: 1rem 0;
+    background-color: #0070f3;
+    color: white;
+    border-radius: 10px;
+    transition: 0.3s;
+    &:hover, &:active{
+      cursor: pointer;
+      scale: 0.97;
+      background-color: #157bf0;
+    }
+  }
+}
 @media (max-width: 600px) {
   .grid {
     width: 100%;
