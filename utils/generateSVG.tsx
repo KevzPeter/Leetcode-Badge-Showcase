@@ -19,7 +19,7 @@ const calculateDimensions=(response:Array<any>)=>{
     })
     let width = 320; //for 1, 2 columns
     if(columns == 3) width = 450;
-    else if(columns >= 4) width = 570;
+    else if(columns >= 4) width = 440;
     return {height, width};
 }
 /**
