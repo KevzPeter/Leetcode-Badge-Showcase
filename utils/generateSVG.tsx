@@ -10,11 +10,11 @@ import { allStyles } from '../styles/svg';
  * Used to calculate dimensions of svg
  */
 const calculateDimensions=(response:Array<any>)=>{
-    let height = 100;
+    let height = 16*2 + 36+(9.6*2)+17; //(1rem * 2) + title height + (0.6rem * 2) + (0.5rem * 2) + 1 
     let columns = 1;
     response.forEach(category=>{
-        height += 53;
-        height += Math.ceil(category.badges.length / 4) * 190;
+        height += 53.14; // 21.14 + (1rem * 2)
+        height += Math.ceil(category.badges.length / 4) * 119.54; //height of row = 119.54px
         columns = Math.max(columns, category.badges.length);
     })
     let width = 320; //for 1, 2 columns
