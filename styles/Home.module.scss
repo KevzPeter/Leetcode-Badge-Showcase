@@ -1,3 +1,5 @@
+@import "colors";
+
 .main {
   min-height: 100vh;
   padding:0;
@@ -44,8 +46,8 @@
 .badge:hover,
 .badge:focus,
 .badge:active {
-  color: #0070f3;
-  border-color: #0070f3;
+  color: $blue;
+  border-color: $blue;
 }
 .badge h2 {
   margin: 0 0 1rem 0;
@@ -94,10 +96,10 @@
     border-radius: 10px;
     padding: .5rem;
     font-weight: 600;
-    color: #0070f3;
+    color: $blue;
     &:focus, &:active{
       outline: none!important;
-      border: 1px solid #0070f3!important;
+      border: 1px solid $blue!important;
     }
   }
   
@@ -106,7 +108,7 @@
     border: none;
     text-decoration: none;
     padding: 1rem 0;
-    background-color: #0070f3;
+    background-color: $blue;
     color: white;
     border-radius: 10px;
     transition: 0.3s;
