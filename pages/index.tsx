@@ -33,6 +33,11 @@ const Home: NextPage = () => {
       if(filter)
         href += `&filter=${filter}`
       router.push(href)
+      .then(()=>setLoading(false))
+      .catch(err => {
+        console.error(err);
+        setLoading(false);
+      });
     }
     else setLoading(false);
   }
