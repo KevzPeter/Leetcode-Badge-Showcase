@@ -11,11 +11,11 @@
   <p align="center">
     Showcase your LeetCode badges on your Github README page 🤩
     <br />
-    <a href="https://leetcode-badge-showcase.vercel.app/api?username=kevzpeter">View Demo</a>
+    <a href="https://leetcode-badge-showcase.vercel.app/">✨ View Demo</a>
     ·
-    <a href="https://github.com/KevzPeter/Leetcode-Badge-Showcase/issues">Report Bug</a>
+    <a href="https://github.com/KevzPeter/Leetcode-Badge-Showcase/issues">🐛 Report Bug</a>
     ·
-    <a href="https://github.com/KevzPeter/Leetcode-Badge-Showcase/issues">Request Feature</a>
+    <a href="https://github.com/KevzPeter/Leetcode-Badge-Showcase/issues">💁🏽 sRequest Feature</a>
   </p>
 </div>
 
