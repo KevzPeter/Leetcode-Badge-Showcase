@@ -15,7 +15,7 @@
     ·
     <a href="https://github.com/KevzPeter/Leetcode-Badge-Showcase/issues">🐛 Report Bug</a>
     ·
-    <a href="https://github.com/KevzPeter/Leetcode-Badge-Showcase/issues">💁🏽 sRequest Feature</a>
+    <a href="https://github.com/KevzPeter/Leetcode-Badge-Showcase/issues">💁🏽 Request Feature</a>
   </p>
 </div>
 
