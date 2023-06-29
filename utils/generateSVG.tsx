@@ -1,16 +1,15 @@
 import React from 'react'
 import ReactDOMServer from 'react-dom/server';
-import { StyleRegistry, useStyleRegistry } from 'styled-jsx'
 import SvgWidget from '../components/SvgWidget';
 import { allStyles } from '../styles/svg';
 /**
  * 
- * @param response:Array<any>
- * @returns {height:number, width:number}
+ * @param {Array<any>} response - Array of LeetCode badge categories, each containing badges
+ * @returns {height:number, width:number} 
  * Used to calculate dimensions of svg
  */
 const calculateDimensions=(response:Array<any>)=>{
-    let height = 16*2 + 36+(9.6*2)+17; //(1rem * 2) + title height + (0.6rem * 2) + (0.5rem * 2) + 1 
+    let height = 16*2 + 36 + (9.6*2)+20; //(1rem * 2) + title height + (0.6rem * 2) + (0.5rem * 2) + 4
     let columns = 1;
     response.forEach(category=>{
         height += 53.14; // 21.14 + (1rem * 2)
