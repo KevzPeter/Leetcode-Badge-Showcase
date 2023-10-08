@@ -4,6 +4,7 @@ import { useRouter } from 'next/router'
 import styles from '../styles/Home.module.scss'
 import { useState, CSSProperties } from "react";
 import ClipLoader from "react-spinners/ClipLoader";
+import { THEME_NAMES } from '../utils/config';
 
 const Home: NextPage = () => {
   let [loading, setLoading] = useState(false);
@@ -13,7 +14,7 @@ const Home: NextPage = () => {
     borderColor: "white",
   };
   const router = useRouter();
-  const themes = ['light', 'dark', 'sky', 'beach', 'mint', 'purple-gang', 'leafy', 'orange']
+  const themes = THEME_NAMES;
   const filters = [
     {name : 'All', value: ''},
     {name : 'Daily Badges', value : 'daily'}, 
@@ -64,10 +65,7 @@ const Home: NextPage = () => {
               return <option key={index} value={filter.value}>{filter.name}</option>
             })}
           </select>
-          <button className={styles.btn} type="submit">
-            {loading ? <ClipLoader color="#60a9fc" loading={loading} cssOverride={override} size={20} aria-label="Loading Spinner" data-testid="loader" /> : 
-            'Get Badges!'}
-            </button>
+          <button className={styles.btn} type="submit">Get Badges!</button>
         </form>
         <p>Check out the <a href="https://github.com/KevzPeter/Leetcode-Badge-Showcase">Github Page</a> for more info!</p>
       </main>

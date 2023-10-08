@@ -1,42 +1,82 @@
 {
-    "light" : {
-        "background" : "#ffffff",
-        "colorPrimary" : "#0070f3",
-        "colorSecondary" : "#034078"
-    },
-    "dark" : {
-        "background" : "#2b2b2b",
-        "colorPrimary" : "#fff",
-        "colorSecondary" : "#B6C1AC"
-    },
-    "beach" : {
-        "background" : "#003566",
-        "colorPrimary" : "#ffd60a",
-        "colorSecondary" : "#ffc300"
-    },
-    "sky" : {
-        "background" : "#3a86ff",
-        "colorPrimary" : "#fff",
-        "colorSecondary" : "#caf0f8"
-    },
-    "purple-gang" : {
-        "background" : "#7209b7",
-        "colorPrimary" : "#ff90b3",
-        "colorSecondary" : "#ffc2e2"
-    },
-    "mint" : {
-        "background" : "#adefd1",
-        "colorPrimary" : "#00203f",
-        "colorSecondary" : "#1b4332"
-    },
-    "leafy" : {
-        "background" : "#386641",
-        "colorPrimary" : "#f2e8cf",
-        "colorSecondary" : "#c1ff9b"
-    },
-    "orange" : {
-        "background" : "#f78154",
-        "colorPrimary" : "#023e8a",
-        "colorSecondary" : "#03045e"
-    }
+  "light": {
+    "background": "#ffffff",
+    "colorPrimary": "#0070f3",
+    "colorSecondary": "#034078"
+  },
+  "dark": {
+    "background": "#2b2b2b",
+    "colorPrimary": "#fff",
+    "colorSecondary": "#B6C1AC"
+  },
+  "beach": {
+    "background": "#003566",
+    "colorPrimary": "#ffd60a",
+    "colorSecondary": "#ffc300"
+  },
+  "sky": {
+    "background": "#3a86ff",
+    "colorPrimary": "#fff",
+    "colorSecondary": "#caf0f8"
+  },
+  "purple-gang": {
+    "background": "#7209b7",
+    "colorPrimary": "#ff90b3",
+    "colorSecondary": "#ffc2e2"
+  },
+  "mint": {
+    "background": "#adefd1",
+    "colorPrimary": "#00203f",
+    "colorSecondary": "#1b4332"
+  },
+  "leafy": {
+    "background": "#386641",
+    "colorPrimary": "#f2e8cf",
+    "colorSecondary": "#c1ff9b"
+  },
+  "transparent": {
+    "background": "#00000000",
+    "colorPrimary": "#023e8a",
+    "colorSecondary": "#03045e"
+  },
+  "github-dark": {
+    "background": "#0D1117",
+    "colorPrimary": "#58A6FF",
+    "colorSecondary": "#1F6FEB"
+  },
+  "nightowl": {
+    "background": "#011627",
+    "colorPrimary": "#C792EA",
+    "colorSecondary": "#7FDBCA"
+  },
+  "tokyonight": {
+    "background": "#1A1B27",
+    "colorPrimary": "#70A5FD",
+    "colorSecondary": "#38BDAE"
+  },
+  "onedark": {
+    "background": "#282C34",
+    "colorPrimary": "#E4BF7A",
+    "colorSecondary": "#DF6D74"
+  },
+  "dracula": {
+    "background": "#282A36",
+    "colorPrimary": "#FF6E96",
+    "colorSecondary": "#F3F3ED"
+  },
+  "monokai": {
+    "background": "#272822",
+    "colorPrimary": "#EB1F6A",
+    "colorSecondary": "#F1F1EB"
+  },
+  "shades-of-purple": {
+    "background": "#2D2B55",
+    "colorPrimary": "#FAD000",
+    "colorSecondary": "#A599E9"
+  },
+  "cobalt2": {
+    "background": "#193549",
+    "colorPrimary": "#FFC600",
+    "colorSecondary": "#0088FF"
+  }
 }
