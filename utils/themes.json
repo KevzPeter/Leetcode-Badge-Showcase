@@ -34,11 +34,6 @@
     "colorPrimary": "#f2e8cf",
     "colorSecondary": "#c1ff9b"
   },
-  "transparent": {
-    "background": "#00000000",
-    "colorPrimary": "#023e8a",
-    "colorSecondary": "#03045e"
-  },
   "github-dark": {
     "background": "#0D1117",
     "colorPrimary": "#58A6FF",
