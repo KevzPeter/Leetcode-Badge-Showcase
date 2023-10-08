@@ -44,22 +44,29 @@ For example, if your Leetcode username is "kevzpeter", add the following line:
 ## 🎨 THEMES 🎨
 
 Want to spice up the look and feel of your badge showcase?
-You can choose your favorite among 8 different themes!
+You can choose your favorite among 15 different themes!
 
 - light (default)
 - dark
+- github-dark
+- monokai
+- tokyonight
+- nightowl
+- onedark
+- shades-of-purple
+- dracula
+- cobalt2
 - sky
 - beach
+- purple-gang
 - mint
 - leafy
-- purple-gang
-- orange
 
 Simply add the *theme* parameter to the url like so:
 
 `<img src="https://leetcode-badge-showcase.vercel.app/api?username={your-leetcode-username}&theme={your-theme}" alt="LeetCode Badges"/>`
 
-<div style="display:grid; gap: 1rem; grid-template-columns: repeat(3, 1fr); grid-template-rows: repeat(7, 10fr); justify-items: center;">
+<div style="display:grid; grid-template-columns: 1fr 1fr 1fr; justify-items: center;">
   <div style="text-align: center;">
     <h4>light</h4>
     <img src="https://leetcode-badge-showcase.vercel.app/api?username=lee215&theme=light" title="light" alt="LeetCode Badges"/>
@@ -67,10 +74,6 @@ Simply add the *theme* parameter to the url like so:
   <div style="text-align: center;">
     <h4>dark</h4>
     <img src="https://leetcode-badge-showcase.vercel.app/api?username=lee215&theme=dark" title="dark" alt="LeetCode Badges"/>
-  </div>
-  <div style="text-align: center;">
-    <h4>transparent</h4>
-    <img src="https://leetcode-badge-showcase.vercel.app/api?username=lee215&theme=transparent" title="transparent" alt="LeetCode Badges"/>
   </div>
   <div style="text-align: center;">
     <h4>github-dark</h4>
