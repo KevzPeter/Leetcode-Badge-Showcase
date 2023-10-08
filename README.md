@@ -59,13 +59,71 @@ Simply add the *theme* parameter to the url like so:
 
 `<img src="https://leetcode-badge-showcase.vercel.app/api?username={your-leetcode-username}&theme={your-theme}" alt="LeetCode Badges"/>`
 
-<div style="display:grid; gap: 1rem; grid-template-columns: 1fr 1fr 1fr; grid-template-rows: 10fr 10fr; justify-items: center;">
-<img src="https://leetcode-badge-showcase.vercel.app/api?username=lee215&theme=sky" title="Sky" alt="LeetCode Badges"/>
-<img src="https://leetcode-badge-showcase.vercel.app/api?username=neal_wu&theme=beach" title="Beach"  alt="LeetCode Badges"/>
-<img src="https://leetcode-badge-showcase.vercel.app/api?username=uwi&theme=dark" title="Dark"  alt="LeetCode Badges"/>
-<img src="https://leetcode-badge-showcase.vercel.app/api?username=lee215&theme=leafy" title="Leafy"  alt="LeetCode Badges"/>
-<img src="https://leetcode-badge-showcase.vercel.app/api?username=neal_wu&theme=purple-gang" title="Purple-Gang"  alt="LeetCode Badges"/>
-<img src="https://leetcode-badge-showcase.vercel.app/api?username=uwi&theme=mint" title="Mint"  alt="LeetCode Badges"/>
+<div style="display:grid; gap: 1rem; grid-template-columns: repeat(3, 1fr); grid-template-rows: repeat(7, 10fr); justify-items: center;">
+  <div style="text-align: center;">
+    <h4>light</h4>
+    <img src="https://leetcode-badge-showcase.vercel.app/api?username=lee215&theme=light" title="light" alt="LeetCode Badges"/>
+  </div>
+  <div style="text-align: center;">
+    <h4>dark</h4>
+    <img src="https://leetcode-badge-showcase.vercel.app/api?username=lee215&theme=dark" title="dark" alt="LeetCode Badges"/>
+  </div>
+  <div style="text-align: center;">
+    <h4>transparent</h4>
+    <img src="https://leetcode-badge-showcase.vercel.app/api?username=lee215&theme=transparent" title="transparent" alt="LeetCode Badges"/>
+  </div>
+  <div style="text-align: center;">
+    <h4>github-dark</h4>
+    <img src="https://leetcode-badge-showcase.vercel.app/api?username=lee215&theme=github-dark" title="Github Dark" alt="LeetCode Badges"/>
+  </div>
+  <div style="text-align: center;">
+    <h4>monokai</h4>
+    <img src="https://leetcode-badge-showcase.vercel.app/api?username=lee215&theme=monokai" title="monokai" alt="LeetCode Badges"/>
+  </div>
+  <div style="text-align: center;">
+    <h4>tokyonight</h4>
+    <img src="https://leetcode-badge-showcase.vercel.app/api?username=lee215&theme=tokyonight" title="tokyonight" alt="LeetCode Badges"/>
+  </div>
+  <div style="text-align: center;">
+    <h4>nightowl</h4>
+    <img src="https://leetcode-badge-showcase.vercel.app/api?username=lee215&theme=nightowl" title="nightowl" alt="LeetCode Badges"/>
+  </div>
+  <div style="text-align: center;">
+    <h4>onedark</h4>
+    <img src="https://leetcode-badge-showcase.vercel.app/api?username=lee215&theme=onedark" title="onedark" alt="LeetCode Badges"/>
+  </div>
+  <div style="text-align: center;">
+    <h4>shades-of-purple</h4>
+    <img src="https://leetcode-badge-showcase.vercel.app/api?username=lee215&theme=shades-of-purple" title="shades-of-purple" alt="LeetCode Badges"/>
+  </div>
+  <div style="text-align: center;">
+    <h4>dracula</h4>
+    <img src="https://leetcode-badge-showcase.vercel.app/api?username=lee215&theme=dracula" title="dracula" alt="LeetCode Badges"/>
+  </div>
+  <div style="text-align: center;">
+    <h4>cobalt2</h4>
+    <img src="https://leetcode-badge-showcase.vercel.app/api?username=lee215&theme=cobalt2" title="cobalt2" alt="LeetCode Badges"/>
+  </div>
+  <div style="text-align: center;">
+    <h4>sky</h4>
+    <img src="https://leetcode-badge-showcase.vercel.app/api?username=lee215&theme=sky" title="sky" alt="LeetCode Badges"/>
+  </div>
+  <div style="text-align: center;">
+    <h4>beach</h4>
+    <img src="https://leetcode-badge-showcase.vercel.app/api?username=lee215&theme=beach" title="beach" alt="LeetCode Badges"/>
+  </div>
+  <div style="text-align: center;">
+    <h4>purple-gang</h4>
+    <img src="https://leetcode-badge-showcase.vercel.app/api?username=lee215&theme=purple-gang" title="purple-gang" alt="LeetCode Badges"/>
+  </div>
+  <div style="text-align: center;">
+    <h4>mint</h4>
+    <img src="https://leetcode-badge-showcase.vercel.app/api?username=lee215&theme=mint" title="mint" alt="LeetCode Badges"/>
+  </div>
+  <div style="text-align: center;">
+    <h4>leafy</h4>
+    <img src="https://leetcode-badge-showcase.vercel.app/api?username=lee215&theme=leafy" title="leafy" alt="LeetCode Badges"/>
+  </div>
 </div>
 
 <br/>
