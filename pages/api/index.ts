@@ -52,36 +52,42 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
             }
         }`;
         const variables = { username };
-        let data: GraphQLResponse = await request(`${LEETCODE_BASEURL}/graphql/`, gqlQuery, variables);
-        if (data.matchedUser.badges.length === 0) {
+        let response: GraphQLResponse = await request(`${LEETCODE_BASEURL}/graphql/`, gqlQuery, variables);
+        if (response.matchedUser.badges.length === 0) {
             res.status(200).send({ status: "success", body: "The user has unlocked 0 badges" });
             return;
         }
-        for (let badge of data.matchedUser.badges) {
+        for (let badge of response.matchedUser.badges) {
             //Some badges have relative icon asset source url
             if (badge.icon.startsWith("/static/")) {
                 badge.icon = LEETCODE_BASEURL + badge.icon;
             }
-            //Converting icon asset fetched from source url to base64 string through proxy API
+            // Converting icon asset fetched from source url to base64 string
+            // This conversion makes several API calls depending on the number of unlocked badges
+            // The following logic needs to be optimized to reduce latency
             try {
-                const { data } = await axios.get(`${BASEURL}/api/proxy`, {
-                    params: {
-                        img: badge.icon,
-                    },
-                });
-                badge.icon = data;
+                // const { data } = await axios.get<string>(badge.icon, {
+                //     responseType: 'arraybuffer',
+                // });
+                // const base64 = Buffer.from(data, 'binary').toString('base64');
+                // const base64String = `data:image/png;base64,${base64}`;
+                // badge.icon = base64String;
             } catch {
-                badge.icon = BadgeIconImg;
+                // badge.icon = BadgeIconImg;
             }
         }
         // Converting Leetcode logo to inline base64 to prevent Github CSP violation.
         const imgURL = `${BASEURL}/leetcode-logo.png`;
-        const response = await axios.get(`${BASEURL}/api/proxy`, { params: { img: imgURL } });
-        const imgSource = response.data;
+        const { data } = await axios.get<string>(imgURL, {
+            responseType: 'arraybuffer',
+        });
+        const base64 = Buffer.from(data, 'binary').toString('base64');
+        const base64String = `data:image/png;base64,${base64}`;
+        const imgSource = base64String;
         //Converting response data to required format
-        data = groupBy(data.matchedUser.badges, "category");
+        response = groupBy(response.matchedUser.badges, "category");
         let responseData = []
-        for (const [category, badges] of Object.entries(data)) {
+        for (const [category, badges] of Object.entries(response)) {
             if (filter && category !== filter) continue;
             responseData.push({ categoryName: category, badges });
         }
@@ -93,7 +99,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
             res.status(200).send({ status: "success", body: responseData });
         }
         else {
-            res.setHeader('Cache-Control', 's-maxage=60, stale-while-revalidate');
+            res.setHeader('Cache-Control', 'max-age=604800, stale-while-revalidate=86400');
             res.setHeader('Content-Type', 'image/svg+xml');
             res.statusCode = 200;
             res.send(generateSvg(responseData, username, imgSource, theme));
