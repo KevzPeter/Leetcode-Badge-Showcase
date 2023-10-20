@@ -66,14 +66,14 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
             // This conversion makes several API calls depending on the number of unlocked badges
             // The following logic needs to be optimized to reduce latency
             try {
-                // const { data } = await axios.get<string>(badge.icon, {
-                //     responseType: 'arraybuffer',
-                // });
-                // const base64 = Buffer.from(data, 'binary').toString('base64');
-                // const base64String = `data:image/png;base64,${base64}`;
-                // badge.icon = base64String;
+                const { data } = await axios.get<string>(badge.icon, {
+                    responseType: 'arraybuffer',
+                });
+                const base64 = Buffer.from(data, 'binary').toString('base64');
+                const base64String = `data:image/png;base64,${base64}`;
+                badge.icon = base64String;
             } catch {
-                // badge.icon = BadgeIconImg;
+                badge.icon = BadgeIconImg;
             }
         }
         // Converting Leetcode logo to inline base64 to prevent Github CSP violation.
