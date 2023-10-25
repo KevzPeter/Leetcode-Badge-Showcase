@@ -7,7 +7,7 @@ import axios from 'axios';
 import { BASEURL, LEETCODE_BASEURL, THEME_NAMES, FILTERS } from "../../utils/config";
 import { Data, Params, GraphQLResponse } from '../../utils/models';
 import path from 'path';
-import { readFileSync, writeFile } from 'fs';
+import { readFileSync } from 'fs';
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse<Data | string>): Promise<any> {
     try {
@@ -86,9 +86,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
             }
             else {
                 try {
-                    let converterResponse = await convertToBase64(cache, badge.icon);
-                    cache = converterResponse.cache;
-                    badge.icon = converterResponse.base64String;
+                    badge.icon = await convertToBase64(cache, badge.icon);
                 }
                 catch {
                     // fallback to default icon
@@ -104,16 +102,19 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
             imgSource = cache.imgURL
         }
         else {
-            let converterResponse = await convertToBase64(cache, imgURL)
-            cache = converterResponse.cache;
-            imgSource = converterResponse.base64String;
+            imgSource = await convertToBase64(cache, imgURL);
         }
-        writeFile(base64File, JSON.stringify(cache), (err) => {
-            if (err) {
-                console.error(err.message);
-                throw new Error("Failed to write file");
-            }
-        });
+        /**
+         * Writing files does not work in Vercel deployments 🥲
+         * Uncomment the following if you have your own Next server setup
+         */
+        // writeFile(base64File, JSON.stringify(cache), (err) => {
+        //     if (err) {
+        //         console.error(err.message);
+        //         throw new Error("Failed to write file");
+        //     }
+        // });
+
         //Converting response data to required format
         response = groupBy(response.matchedUser.badges, "category");
         let responseData = []
@@ -151,5 +152,5 @@ const convertToBase64 = async (cache: any, imgURL: string) => {
     const base64 = Buffer.from(data, 'binary').toString('base64');
     const base64String = `data:image/png;base64,${base64}`;
     cache[imgURL] = base64String;
-    return { cache, base64String };
+    return base64String;
 }
