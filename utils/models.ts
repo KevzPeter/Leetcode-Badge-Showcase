@@ -7,6 +7,7 @@ export interface Params {
     filter: string,
     json: string,
     theme: string
+    border: string
 }
 export interface Badge {
     id: string,

@@ -40,7 +40,6 @@ a {
   padding: 1rem 1rem;
   max-width: 500px;
   border-radius: 1rem;
-  border: 1px solid #495057;
 }
 .showCase hr{
   width: 100%;

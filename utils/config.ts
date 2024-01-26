@@ -10,3 +10,5 @@ export const FILTERS = {
     comp: 'COMPETITION',
     study: 'STUDY_PLAN'
 }
+
+export const BORDER = ['border', 'no-border']

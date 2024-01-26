@@ -4,7 +4,7 @@ import { useRouter } from 'next/router'
 import styles from '../styles/Home.module.scss'
 import { useState, CSSProperties } from "react";
 import ClipLoader from "react-spinners/ClipLoader";
-import { THEME_NAMES } from '../utils/config';
+import { THEME_NAMES, BORDER } from '../utils/config';
 
 const Home: NextPage = () => {
   let [loading, setLoading] = useState(false);
@@ -20,19 +20,26 @@ const Home: NextPage = () => {
     {name : 'Daily Badges', value : 'daily'}, 
     {name : 'Study Badges', value : 'study'}, 
     {name : 'Competition Badges', value : 'comp'}
-]
+  ]
+  // Created const border
+  const border = BORDER;
+
   const handleSubmit=(e)=>{
     e.preventDefault();
     setLoading(true);
     let username = e.target.username.value;
     let theme = e.target.theme.value;
     let filter = e.target.filter.value;
+    // badge
+    let border = e.target.border.value;
     if(username){
       let href = `/api?username=${username}`
       if(theme)
         href += `&theme=${theme}`
       if(filter)
         href += `&filter=${filter}`
+      if(border)
+        href += `&border=${border}`
       router.push(href)
       .then(()=>setLoading(false))
       .catch(err => {
@@ -65,6 +72,15 @@ const Home: NextPage = () => {
               return <option key={index} value={filter.value}>{filter.name}</option>
             })}
           </select>
+
+          {/* HTML for border */}
+          <label htmlFor="border">🖌️ Border</label>
+          <select name='border'>
+            {border.map((border, index)=>{
+              return <option key={index} value={border}>{border}</option>
+            })}
+          </select> 
+
           <button className={styles.btn} type="submit">Get Badges!</button>
         </form>
         <p>Check out the <a href="https://github.com/KevzPeter/Leetcode-Badge-Showcase">Github Page</a> for more info!</p>
