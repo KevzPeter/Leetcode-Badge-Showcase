@@ -4,14 +4,14 @@ import { groupBy } from 'lodash';
 import { generateSvg } from '../../utils/generateSVG';
 import BadgeIconImg from "../../public/Badge-icon.png";
 import axios from 'axios';
-import { BASEURL, LEETCODE_BASEURL, THEME_NAMES, FILTERS } from "../../utils/config";
+import { BASEURL, LEETCODE_BASEURL, THEME_NAMES, FILTERS, BORDER } from "../../utils/config";
 import { Data, Params, GraphQLResponse } from '../../utils/models';
 import path from 'path';
 import { readFileSync } from 'fs';
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse<Data | string>): Promise<any> {
     try {
-        let { username, theme, filter, json }: Params = <any>req.query;
+        let { username, theme, filter, border, json }: Params = <any>req.query;
         //username query validation
         if (!username || username.trim() === '') {
             res.status(400).send({
@@ -37,6 +37,14 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
         else theme = theme.trim().toLowerCase();
         if (!THEME_NAMES.includes(theme)) {
             theme = 'light';
+        }
+        //border query validation
+        if (!border || border.length === 0) {
+            border = 'border';
+        }
+        else border = border.trim().toLowerCase();
+        if (!BORDER.includes(border)) {
+            border = 'border';
         }
         //GraphQL query to fetch badges from Leetcode's API endpoint
         const gqlQuery = gql`
@@ -133,7 +141,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
             res.setHeader('Cache-Control', 'max-age=604800, stale-while-revalidate=86400');
             res.setHeader('Content-Type', 'image/svg+xml');
             res.statusCode = 200;
-            res.send(generateSvg(responseData, username, imgSource, theme));
+            res.send(generateSvg(responseData, username, imgSource, theme, border));
         }
     }
     catch (err: any) {
