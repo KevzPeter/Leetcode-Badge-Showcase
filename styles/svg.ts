@@ -46,14 +46,17 @@ a {
   height: 1px;
   border: none;
 }
-.showCase h5{
+.showCase span{
   font-size: 0.9rem;
+  font-weight: 600;
   display: flex;
   align-items: center;
-  margin: 0.6rem 0;
+  margin: 0;
 }
 .category p{
   font-weight: 600;
+  font-size: .8rem;
+  margin: .3rem 0;
 }
 .grid {
   display: flex;
@@ -64,8 +67,8 @@ a {
 }
 
 .badge {
-  margin: 0.5rem;
-  padding: .5rem;
+  margin: 0.3rem;
+  padding: 0.3rem;
   text-align: center;
   color: inherit;
   text-decoration: none;

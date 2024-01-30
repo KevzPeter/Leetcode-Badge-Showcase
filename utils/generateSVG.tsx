@@ -8,26 +8,26 @@ import { allStyles } from '../styles/svg';
  * @returns {height:number, width:number} 
  * Used to calculate dimensions of svg
  */
-const calculateDimensions=(response:Array<any>)=>{
-    let height = 16*2 + 36 + (9.6*2)+20; //(1rem * 2) + title height + (0.6rem * 2) + (0.5rem * 2) + 4
+const calculateDimensions = (response: Array<any>) => {
+    let height = 53 + (16 * 2); //header + padding top and bottom (1rem + 1rem)
     let columns = 1;
-    response.forEach(category=>{
-        height += 53.14; // 21.14 + (1rem * 2)
-        height += Math.ceil(category.badges.length / 4) * 119.54; //height of row = 119.54px
+    response.forEach(category => {
+        height += 27;
+        height += Math.ceil(category.badges.length / 4) * 107; //height of row of badges = 107px;
         columns = Math.max(columns, category.badges.length);
     })
-    let width = 320; //for 1, 2 columns
-    if(columns == 3) width = 360;
-    else if(columns >= 4) width = 440;
-    return {height, width};
+    let width = 300; //for 1, 2 columns
+    if (columns == 3) width = 320;
+    else if (columns >= 4) width = 400;
+    return { height, width };
 }
 /**
  * Returns SVG as a string.
  */
-export function generateSvg(response:Array<any>, username:string, imgSource:string, theme:string, border:string): string {
-    const {height, width} = calculateDimensions(response);
+export function generateSvg(response: Array<any>, username: string, imgSource: string, theme: string, border: string): string {
+    const { height, width } = calculateDimensions(response);
     const svgBody = ReactDOMServer.renderToStaticMarkup(
-        <SvgWidget response={response} username={username} imgSource={imgSource} theme={theme} border={border}/>
+        <SvgWidget response={response} username={username} imgSource={imgSource} theme={theme} border={border} />
     );
 
     return `
