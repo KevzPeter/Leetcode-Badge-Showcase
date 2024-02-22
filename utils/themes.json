@@ -73,5 +73,10 @@
     "background": "#193549",
     "colorPrimary": "#FFC600",
     "colorSecondary": "#0088FF"
+  },
+  "black": {
+    "background": "#000",
+    "colorPrimary": "#efefef",
+    "colorSecondary": "#fff"
   }
 }
