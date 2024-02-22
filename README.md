@@ -75,7 +75,7 @@ Simply add the *theme* parameter to the url like so:
 | `dracula` ![dracula][dracula] | `cobalt2` ![cobalt2][cobalt2] |
 | `sky` ![sky][sky] | `beach` ![beach][beach] |
 | `purple-gang` ![purple-gang][purple-gang] | `mint` ![mint][mint] |
-| `leafy` ![leafy][leafy] |
+| `leafy` ![leafy][leafy] | `black` ![black][black] |
 
 [light]: https://leetcode-badge-showcase.vercel.app/api?username=kevzpeter&theme=light&filter=study
 [dark]: https://leetcode-badge-showcase.vercel.app/api?username=kevzpeter&theme=dark&filter=study
@@ -92,6 +92,7 @@ Simply add the *theme* parameter to the url like so:
 [purple-gang]: https://leetcode-badge-showcase.vercel.app/api?username=kevzpeter&theme=purple-gang&filter=study
 [mint]: https://leetcode-badge-showcase.vercel.app/api?username=kevzpeter&theme=mint&filter=study
 [leafy]: https://leetcode-badge-showcase.vercel.app/api?username=kevzpeter&theme=leafy&filter=study
+[black]: https://leetcode-badge-showcase.vercel.app/api?username=kevzpeter&theme=black&filter=study
 
 <br/>
 
