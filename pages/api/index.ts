@@ -8,6 +8,7 @@ import { BASEURL, LEETCODE_BASEURL, THEME_NAMES, FILTERS, BORDER } from "../../u
 import { Data, Params, GraphQLResponse } from '../../utils/models';
 import path from 'path';
 import { readFileSync } from 'fs';
+import sharp from 'sharp';
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse<Data | string>): Promise<any> {
     try {
@@ -157,8 +158,9 @@ const convertToBase64 = async (cache: any, imgURL: string) => {
     const { data } = await axios.get<string>(imgURL, {
         responseType: 'arraybuffer',
     });
-    const base64 = Buffer.from(data, 'binary').toString('base64');
-    const base64String = `data:image/png;base64,${base64}`;
+    const webpBuffer = await sharp(data).webp().toBuffer();
+    let base64String = webpBuffer.toString('base64');
+    base64String = `data:image/webp;base64,${base64String}`;
     cache[imgURL] = base64String;
     return base64String;
 }
