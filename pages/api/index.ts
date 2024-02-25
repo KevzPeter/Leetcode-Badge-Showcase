@@ -132,7 +132,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
         }
         //If given filter has no badges
         if (responseData?.length === 0) {
-            res.status(400).send({ status: 'error', body: "No badges found with given filter or some other error occured 😕" });
+            res.status(400).send({ status: 'error', body: "No badges found with given filter or some other error occurred 😕" });
         }
         else if (json?.toLowerCase() === 'true') {
             res.status(200).send({ status: "success", body: responseData });
@@ -148,7 +148,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
         console.error(err.message);
         res.status(500).send({
             status: 'error',
-            body: 'The user does not exist 🔍 or some other error occured 😔'
+            body: 'The user does not exist 🔍 or some other error occurred 😔'
         });
     }
 }
