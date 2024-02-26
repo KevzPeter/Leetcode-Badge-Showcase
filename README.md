@@ -28,15 +28,21 @@
 
 Add the following line to your Github README.md page and replace {your-leetcode-username} ⤵️
 
-`<img src="https://leetcode-badge-showcase.vercel.app/api?username={your-leetcode-username}" alt="LeetCode Badges"/>`
+```html
+<img src="https://leetcode-badge-showcase.vercel.app/api?username={your-leetcode-username}" alt="LeetCode Badges"/>
+```
  
  Or even this way ⤵️
 
-`![LeetCode Badges](https://leetcode-badge-showcase.vercel.app/api?username={your-leetcode-username})`
+```mark
+![LeetCode Badges](https://leetcode-badge-showcase.vercel.app/api?username={your-leetcode-username})
+```
 
 For example, if your Leetcode username is "kevzpeter", add the following line:
 
-`![LeetCode Badges](https://leetcode-badge-showcase.vercel.app/api?username=kevzpeter)`
+```mark
+![LeetCode Badges](https://leetcode-badge-showcase.vercel.app/api?username=kevzpeter)`
+```
 
 👉🏼 *Image not rendering? Simply refresh the page!* 
 <br/>
@@ -44,38 +50,25 @@ For example, if your Leetcode username is "kevzpeter", add the following line:
 ## 🎨 THEMES 🎨
 
 Want to spice up the look and feel of your badge showcase?
-You can choose your favorite among 15 different themes!
-
-- light (default)
-- dark
-- github-dark
-- monokai
-- tokyonight
-- nightowl
-- onedark
-- shades-of-purple
-- dracula
-- cobalt2
-- sky
-- beach
-- purple-gang
-- mint
-- leafy
+You can choose your favorite among 16 different themes!
 
 Simply add the *theme* parameter to the url like so:
 
-`<img src="https://leetcode-badge-showcase.vercel.app/api?username={your-leetcode-username}&theme={your-theme}" alt="LeetCode Badges"/>`
+```html
+<img src="https://leetcode-badge-showcase.vercel.app/api?username={your-leetcode-username}&theme={your-theme}" alt="LeetCode Badges"/>
+```
+<br /> 
 
 | | |
 | :--: | :--: |
-| `light` ![light][light] | `dark` ![dark][dark] |
-| `github-dark` ![github-dark][github-dark] | `monokai` ![monokai][monokai] |
-| `tokyonight` ![tokyonight][tokyonight] | `nightowl` ![nightowl][nightowl] |
-| `onedark` ![onedark][onedark] | `shades-of-purple` ![shades-of-purple][shades-of-purple] 
-| `dracula` ![dracula][dracula] | `cobalt2` ![cobalt2][cobalt2] |
-| `sky` ![sky][sky] | `beach` ![beach][beach] |
-| `purple-gang` ![purple-gang][purple-gang] | `mint` ![mint][mint] |
-| `leafy` ![leafy][leafy] | `black` ![black][black] |
+| `light` <br /> ![light][light] | `dark` <br />  ![dark][dark] |
+| `github-dark` <br />  ![github-dark][github-dark] | `monokai` <br />  ![monokai][monokai] |
+| `tokyonight` <br />  ![tokyonight][tokyonight] | `nightowl` <br />  ![nightowl][nightowl] |
+| `onedark` <br />  ![onedark][onedark] | `shades-of-purple` <br />  ![shades-of-purple][shades-of-purple] 
+| `dracula` <br />  ![dracula][dracula] | `cobalt2` <br />  ![cobalt2][cobalt2] |
+| `sky` <br />  ![sky][sky] | `beach` <br />  ![beach][beach] |
+| `purple-gang` <br />  ![purple-gang][purple-gang] | `mint` <br />  ![mint][mint] |
+| `leafy` <br />  ![leafy][leafy] | `black` <br />  ![black][black] |
 
 [light]: https://leetcode-badge-showcase.vercel.app/api?username=kevzpeter&theme=light&filter=study
 [dark]: https://leetcode-badge-showcase.vercel.app/api?username=kevzpeter&theme=dark&filter=study
