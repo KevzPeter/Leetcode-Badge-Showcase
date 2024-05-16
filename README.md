@@ -93,7 +93,11 @@ Simply add the *theme* parameter to the url like so:
 
 Wanna only show a specific set of badges ? Add a filter parameter like so :
 
-- Competitive: &filter=comp
+```html
+<img src="https://leetcode-badge-showcase.vercel.app/api?username={your-leetcode-username}&filter={your-filter}" alt="LeetCode Badges"/>
+```
+
+- Competitive Badges: &filter=comp
 - Daily Challenge: &filter=daily
 - Study Plan: &filter=study
 
