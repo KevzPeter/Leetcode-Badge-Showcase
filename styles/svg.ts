@@ -53,6 +53,11 @@ a {
   align-items: center;
   margin: 0;
 }
+.showCase .header{
+  display: flex;
+  gap: .5rem;
+  word-break: break-word;
+}
 .category p{
   font-weight: 600;
   font-size: .8rem;

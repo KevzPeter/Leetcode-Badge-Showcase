@@ -19,9 +19,9 @@ export default function SvgWidget({ response, username, imgSource, theme, border
                             }}
                         >
                             <div>
-                                <span style={{ 'color': `${themes[theme].colorPrimary}` }}>
-                                    <img src={imgSource} alt="LeetCode Logo" title="LeetCode Logo" width={36} height={36} />&nbsp;
-                                    <a href={`https://leetcode.com/${username}`} target="_blank" rel="noreferrer">{username}</a>&nbsp;LeetCode Badges
+                                <span style={{ 'color': `${themes[theme].colorPrimary}` }} className='header'>
+                                    <img src={imgSource} alt="LeetCode Logo" title="LeetCode Logo" width={36} height={36} />
+                                    <span>{username} LeetCode Badges</span>
                                 </span>
                                 <hr style={{ 'background-color': `${themes[theme].colorSecondary}` }} />
                             </div>
