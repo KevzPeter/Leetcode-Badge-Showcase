@@ -7,46 +7,24 @@ import axios from 'axios';
 import { BASEURL, LEETCODE_BASEURL, THEME_NAMES, FILTERS, BORDER } from "../../utils/config";
 import { Data, Params, GraphQLResponse } from '../../utils/models';
 import path from 'path';
-import { readFileSync } from 'fs';
+import { readFileSync, writeFile } from 'fs';
 import sharp from 'sharp';
+import { validationSchema } from '../../utils/validation.schema';
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse<Data | string>): Promise<any> {
     try {
-        let { username, theme, filter, border, json }: Params = <any>req.query;
-        //username query validation
-        if (!username || username.trim() === '') {
-            res.status(400).send({
+        console.log(`Incoming Request: ${JSON.stringify(req.query)}`);
+        const { error, value } = validationSchema.validate(req.query);
+        if (error) {
+            return res.status(400).json({
                 status: 'error',
-                body: 'Missing username parameter in query'
-            });
+                body: error.details.map(detail => detail.message)
+            })
         }
-        //filter query validation
-        if (filter?.length > 0) {
-            filter = filter.trim().toLowerCase();
-            if (!Object.keys(FILTERS).includes(filter)) {
-                res.status(400).send({
-                    status: 'error',
-                    body: 'Invalid filter parameter 😕, use filter={comp|daily|study}'
-                });
-            }
-            else filter = FILTERS[`${filter}`];
-        }
-        //theme query validation
-        if (!theme || theme.length === 0) {
-            theme = 'light';
-        }
-        else theme = theme.trim().toLowerCase();
-        if (!THEME_NAMES.includes(theme)) {
-            theme = 'light';
-        }
-        //border query validation
-        if (!border || border.length === 0) {
-            border = 'border';
-        }
-        else border = border.trim().toLowerCase();
-        if (!BORDER.includes(border)) {
-            border = 'border';
-        }
+        console.log(value);
+        let { username, theme, filter, border, json, animated }: Params = value;
+        if (filter) filter = FILTERS[`${filter}`];
+
         //GraphQL query to fetch badges from Leetcode's API endpoint
         const gqlQuery = gql`
         query userBadges($username: String!) 
@@ -64,9 +42,9 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
         }`;
         const variables = { username };
         let response: GraphQLResponse = await request(`${LEETCODE_BASEURL}/graphql/`, gqlQuery, variables);
+
         if (response.matchedUser.badges.length === 0) {
-            res.status(200).send({ status: "success", body: "The user has unlocked 0 badges" });
-            return;
+            return res.status(200).json({ status: "success", body: "The user has unlocked 0 badges" });
         }
 
         /**
@@ -97,12 +75,29 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
                 try {
                     badge.icon = await convertToBase64(cache, badge.icon);
                 }
-                catch {
+                catch (err) {
                     // fallback to default icon
                     badge.icon = BadgeIconImg;
                 }
             }
-
+            // convert GIF if available
+            if (animated === 'true' && badge.medal?.config?.iconGif?.endsWith('.gif')) {
+                if (badge.medal.config.iconGif.startsWith("/static/")) {
+                    badge.medal.config.iconGif = LEETCODE_BASEURL + badge.medal.config.iconGif;
+                }
+                if (cache[badge.medal.config.iconGif]) {
+                    badge.medal.config.iconGif = cache[badge.medal.config.iconGif]
+                }
+                else {
+                    try {
+                        badge.medal.config.iconGif = await convertGifToBase64(cache, badge.medal.config.iconGif);
+                    }
+                    catch (err) {
+                        // fallback to default icon
+                        badge.medal.config.iconGif = badge.icon;
+                    }
+                }
+            }
         }
         // Converting Leetcode logo to inline base64 to prevent Github CSP violation.
         let imgSource = '';
@@ -133,21 +128,21 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
         }
         //If given filter has no badges
         if (responseData?.length === 0) {
-            res.status(400).send({ status: 'error', body: "No badges found with given filter or some other error occurred 😕" });
+            return res.status(400).json({ status: 'error', body: "No badges found with given filter or some other error occurred 😕" });
         }
         else if (json?.toLowerCase() === 'true') {
-            res.status(200).send({ status: "success", body: responseData });
+            return res.status(200).json({ status: "success", body: responseData });
         }
         else {
             res.setHeader('Cache-Control', 'max-age=604800, stale-while-revalidate=86400');
             res.setHeader('Content-Type', 'image/svg+xml');
             res.statusCode = 200;
-            res.send(generateSvg(responseData, username, imgSource, theme, border));
+            res.send(generateSvg(responseData, username, imgSource, theme, border, animated));
         }
     }
     catch (err: any) {
         console.error(err.message);
-        res.status(500).send({
+        return res.status(500).json({
             status: 'error',
             body: 'The user does not exist 🔍 or some other error occurred 😔'
         });
@@ -161,6 +156,17 @@ const convertToBase64 = async (cache: any, imgURL: string) => {
     const webpBuffer = await sharp(data).webp().toBuffer();
     let base64String = webpBuffer.toString('base64');
     base64String = `data:image/webp;base64,${base64String}`;
+    cache[imgURL] = base64String;
+    return base64String;
+}
+
+const convertGifToBase64 = async (cache: any, imgURL: string) => {
+    const { data } = await axios.get<Buffer>(imgURL, {
+        responseType: 'arraybuffer',
+    });
+    const resizedGifBuffer = await sharp(data, { animated: true }).resize({ width: 48, height: 48 }).gif().toBuffer();
+    let base64String = resizedGifBuffer.toString('base64');
+    base64String = `data:image/gif;base64,${base64String}`;
     cache[imgURL] = base64String;
     return base64String;
 }
