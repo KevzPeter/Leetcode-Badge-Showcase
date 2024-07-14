@@ -23,10 +23,10 @@
 <img src="https://leetcode-badge-showcase.vercel.app/api?username=kevzpeter" />
 </div>
 
-## ⭐ Add to your README page ⭐
+## 🚀 Add to your README page 
 <br/>
 
-Add the following line to your Github README.md page and replace {your-leetcode-username} ⤵️
+Add the following line to your Github README.md (or HTML) page and replace {your-leetcode-username} ⤵️
 
 ```html
 <img src="https://leetcode-badge-showcase.vercel.app/api?username={your-leetcode-username}" alt="LeetCode Badges"/>
@@ -41,13 +41,24 @@ Add the following line to your Github README.md page and replace {your-leetcode-
 For example, if your Leetcode username is "kevzpeter", add the following line:
 
 ```mark
-![LeetCode Badges](https://leetcode-badge-showcase.vercel.app/api?username=kevzpeter)`
+![LeetCode Badges](https://leetcode-badge-showcase.vercel.app/api?username=kevzpeter&animated=true)
 ```
 
 👉🏼 *Image not rendering? Simply refresh the page!* 
 <br/>
 
-## 🎨 THEMES 🎨
+## ✨ Animated Badges
+
+To animate your badges in the showcase, add the parameter *animated* to the url and set its value to `true`:
+
+```html
+<img src="https://leetcode-badge-showcase.vercel.app/api?username={your-leetcode-username}&animated=true" alt="LeetCode Badges"/>
+```
+
+### Example
+![LeetCode Badges](https://leetcode-badge-showcase.vercel.app/api?username=kevzpeter&animated=true&filter=comp)
+
+## 🎨 Themes
 
 Want to spice up the look and feel of your badge showcase?
 You can choose your favorite among 16 different themes!
@@ -57,7 +68,8 @@ Simply add the *theme* parameter to the url like so:
 ```html
 <img src="https://leetcode-badge-showcase.vercel.app/api?username={your-leetcode-username}&theme={your-theme}" alt="LeetCode Badges"/>
 ```
-<br /> 
+
+### Examples
 
 | | |
 | :--: | :--: |
@@ -89,9 +101,9 @@ Simply add the *theme* parameter to the url like so:
 
 <br/>
 
-## ✂️ FILTERS ✂️
+## ✂️ Filters
 
-Wanna only show a specific set of badges ? Add a filter parameter like so :
+Wanna only show a specific set of badges ? Add a *filter* parameter like so :
 
 ```html
 <img src="https://leetcode-badge-showcase.vercel.app/api?username={your-leetcode-username}&filter={your-filter}" alt="LeetCode Badges"/>
@@ -103,16 +115,14 @@ Wanna only show a specific set of badges ? Add a filter parameter like so :
 
 
 <!-- BUILT WITH -->
-## 🔧 Built With 🔧
+## 🔧 Built With 
 <br/>
 
 * [![Next][Next.js]][Next-url]
 * [![React][React.js]][React-url]
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
 <!-- SET UP -->
-## 🏗️ Set Up your own Server 🏗️
+## 🏗️ Set Up your own Server 
 
 * Make sure you have Node.js installed
 * Clone the repository
@@ -126,7 +136,7 @@ Wanna only show a specific set of badges ? Add a filter parameter like so :
 <br/>
 
 <!-- CONTRIBUTING -->
-## 🙌🏼 Contributing 🙌🏼
+## 🙌🏼 Contributing 
 
 If you wanna add your custom theme or suggest enhancements, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement".
 Don't forget to give the project a star! Thanks again!
