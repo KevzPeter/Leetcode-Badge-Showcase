@@ -16,36 +16,38 @@ const Home: NextPage = () => {
   const router = useRouter();
   const themes = THEME_NAMES;
   const filters = [
-    {name : 'All', value: ''},
-    {name : 'Daily Badges', value : 'daily'}, 
-    {name : 'Study Badges', value : 'study'}, 
-    {name : 'Competition Badges', value : 'comp'}
+    { name: 'All', value: '' },
+    { name: 'Daily Badges', value: 'daily' },
+    { name: 'Study Badges', value: 'study' },
+    { name: 'Competition Badges', value: 'comp' }
   ]
   // Created const border
   const border = BORDER;
 
-  const handleSubmit=(e)=>{
+  const handleSubmit = (e) => {
     e.preventDefault();
     setLoading(true);
     let username = e.target.username.value;
     let theme = e.target.theme.value;
     let filter = e.target.filter.value;
-    // badge
+    let animated = e.target.animated.value;
     let border = e.target.border.value;
-    if(username){
+    if (username) {
       let href = `/api?username=${username}`
-      if(theme)
+      if (theme)
         href += `&theme=${theme}`
-      if(filter)
+      if (filter)
         href += `&filter=${filter}`
-      if(border)
+      if (border)
         href += `&border=${border}`
+      if (animated)
+        href += `&animated=${animated}`
       router.push(href)
-      .then(()=>setLoading(false))
-      .catch(err => {
-        console.error(err);
-        setLoading(false);
-      });
+        .then(() => setLoading(false))
+        .catch(err => {
+          console.error(err);
+          setLoading(false);
+        });
     }
     else setLoading(false);
   }
@@ -57,30 +59,32 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={styles.container}>
-        <form className={styles.form} onSubmit={e=>handleSubmit(e)}>
+        <form className={styles.form} onSubmit={e => handleSubmit(e)}>
           <label htmlFor="username">🧑🏽 Username</label>
           <input id="username" name="username" type="name"></input>
           <label htmlFor="theme">🎨 Theme</label>
           <select name='theme'>
-            {themes.map((theme, index)=>{
+            {themes.map((theme, index) => {
               return <option key={index} value={theme}>{theme}</option>
             })}
           </select>
           <label htmlFor="filter">🔧 Filter</label>
           <select name='filter'>
-            {filters.map((filter, index)=>{
+            {filters.map((filter, index) => {
               return <option key={index} value={filter.value}>{filter.name}</option>
             })}
           </select>
-
-          {/* HTML for border */}
+          <label htmlFor="animated">✨ Animated Badges</label>
+          <select name='animated'>
+            <option value='false'>false</option>
+            <option value='true'>true</option>
+          </select>
           <label htmlFor="border">🖌️ Border</label>
           <select name='border'>
-            {border.map((border, index)=>{
+            {border.map((border, index) => {
               return <option key={index} value={border}>{border}</option>
             })}
-          </select> 
-
+          </select>
           <button className={styles.btn} type="submit">Get Badges!</button>
         </form>
         <p>Check out the <a href="https://github.com/KevzPeter/Leetcode-Badge-Showcase">Github Page</a> for more info!</p>
