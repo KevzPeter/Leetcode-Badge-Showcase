@@ -8,11 +8,14 @@ import { allStyles } from '../styles/svg';
  * @returns {height:number, width:number} 
  * Used to calculate dimensions of svg
  */
-const calculateDimensions = (response: Array<any>) => {
+const calculateDimensions = (response: Array<any>, border: string) => {
     let height = 53 + (16 * 2); //header + padding top and bottom (1rem + 1rem)
+    if (border === 'border') {
+        height += 2; // add border of 1px on either side
+    }
     let columns = 1;
     response.forEach(category => {
-        height += 27;
+        height += 27; // category header
         height += Math.ceil(category.badges.length / 4) * 107; //height of row of badges = 107px;
         columns = Math.max(columns, category.badges.length);
     })
@@ -25,7 +28,7 @@ const calculateDimensions = (response: Array<any>) => {
  * Returns SVG as a string.
  */
 export function generateSvg(response: Array<any>, username: string, imgSource: string, theme: string, border: string, animated: string): string {
-    const { height, width } = calculateDimensions(response);
+    const { height, width } = calculateDimensions(response, border);
     const svgBody = ReactDOMServer.renderToStaticMarkup(
         <SvgWidget response={response} username={username} imgSource={imgSource} theme={theme} border={border} animated={animated} />
     );

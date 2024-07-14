@@ -5,7 +5,7 @@ import themes from '../utils/themes.json';
  * The main SVG widget.
  */
 export default function SvgWidget({ response, username, imgSource, theme, border, animated }): JSX.Element {
-    const borderStyle = border === 'border' ? '1px solid #495057' : 'none';
+    const borderStyle = border === 'border' ? '1px solid #E4E2E2' : 'none';
     return (
         <g>
             <foreignObject x="0" y="0" width="100%" height="100%">
