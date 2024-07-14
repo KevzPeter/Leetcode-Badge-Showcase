@@ -112,12 +112,12 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
          * Writing files does not work in Vercel deployments 🥲
          * Uncomment the following if you have your own Next server setup
          */
-        writeFile(base64File, JSON.stringify(cache), (err) => {
-            if (err) {
-                console.error(err.message);
-                throw new Error("Failed to write file");
-            }
-        });
+        // writeFile(base64File, JSON.stringify(cache), (err) => {
+        //     if (err) {
+        //         console.error(err.message);
+        //         throw new Error("Failed to write file");
+        //     }
+        // });
 
         //Converting response data to required format
         response = groupBy(response.matchedUser.badges, "category");
