@@ -4,7 +4,7 @@ import themes from '../utils/themes.json';
 /**
  * The main SVG widget.
  */
-export default function SvgWidget({ response, username, imgSource, theme, border }): JSX.Element {
+export default function SvgWidget({ response, username, imgSource, theme, border, animated }): JSX.Element {
     const borderStyle = border === 'border' ? '1px solid #495057' : 'none';
     return (
         <g>
@@ -26,7 +26,7 @@ export default function SvgWidget({ response, username, imgSource, theme, border
                                 <hr style={{ 'background-color': `${themes[theme].colorSecondary}` }} />
                             </div>
                             {response?.map((category: Object, index: number) => {
-                                return (<Category category={category} key={index} theme={theme} border={border} />)
+                                return (<Category category={category} key={index} theme={theme} border={border} animated={animated} />)
                             })}
                         </div>
                     }

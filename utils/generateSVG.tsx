@@ -24,10 +24,10 @@ const calculateDimensions = (response: Array<any>) => {
 /**
  * Returns SVG as a string.
  */
-export function generateSvg(response: Array<any>, username: string, imgSource: string, theme: string, border: string): string {
+export function generateSvg(response: Array<any>, username: string, imgSource: string, theme: string, border: string, animated: string): string {
     const { height, width } = calculateDimensions(response);
     const svgBody = ReactDOMServer.renderToStaticMarkup(
-        <SvgWidget response={response} username={username} imgSource={imgSource} theme={theme} border={border} />
+        <SvgWidget response={response} username={username} imgSource={imgSource} theme={theme} border={border} animated={animated} />
     );
 
     return `

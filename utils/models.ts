@@ -7,7 +7,8 @@ export interface Params {
     filter: string,
     json: string,
     theme: string
-    border: string
+    border: string,
+    animated: string
 }
 export interface Badge {
     id: string,
@@ -19,7 +20,7 @@ export interface Badge {
     medal: {
         slug: string,
         config: {
-            iconGif: string,
+            iconGif: string | any,
             iconGifBackground: string
         }
     },
