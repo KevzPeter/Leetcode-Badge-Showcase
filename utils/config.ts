@@ -8,7 +8,9 @@ export const THEME_NAMES = ['light', 'dark', 'sky', 'beach', 'github-dark', 'nig
 export const FILTERS = {
     daily: 'DCC',
     comp: 'COMPETITION',
-    study: 'STUDY_PLAN'
+    study: 'STUDY_PLAN',
+    annual: 'ANNUAL',
+    submission: 'SUBMISSION'
 }
 
 export const BORDER = ['border', 'no-border']

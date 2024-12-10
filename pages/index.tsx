@@ -19,7 +19,9 @@ const Home: NextPage = () => {
     { name: 'All', value: '' },
     { name: 'Daily Badges', value: 'daily' },
     { name: 'Study Badges', value: 'study' },
-    { name: 'Competition Badges', value: 'comp' }
+    { name: 'Competition Badges', value: 'comp' },
+    { name: 'Annual Badges', value: 'annual' },
+    { name: 'Submission Badges', value: 'submission' }
   ]
   // Created const border
   const border = BORDER;
