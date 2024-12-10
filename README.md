@@ -56,7 +56,7 @@ To animate your badges in the showcase, add the parameter *animated* to the url 
 ```
 
 ### Example
-![LeetCode Badges](https://leetcode-badge-showcase.vercel.app/api?username=kevzpeter&animated=true&filter=comp)
+![LeetCode Badges](https://leetcode-badge-showcase.vercel.app/api?username=kevzpeter&animated=true&filter=annual)
 
 ## 🎨 Themes
 
@@ -109,9 +109,11 @@ Wanna only show a specific set of badges ? Add a *filter* parameter like so :
 <img src="https://leetcode-badge-showcase.vercel.app/api?username={your-leetcode-username}&filter={your-filter}" alt="LeetCode Badges"/>
 ```
 
-- Competitive Badges: &filter=comp
-- Daily Challenge: &filter=daily
-- Study Plan: &filter=study
+- Competitive Badges: &filter=`comp`
+- Daily Challenge: &filter=`daily`
+- Study Plan: &filter=`study`
+- Annual Badges: &filter=`annual`
+- Submission Badges: &filter=`submission`
 
 
 <!-- BUILT WITH -->
