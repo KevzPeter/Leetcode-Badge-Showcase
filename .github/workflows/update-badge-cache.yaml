@@ -3,6 +3,9 @@ name: Update Cache File
 on:
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 jobs:
   update-cache:
     runs-on: ubuntu-latest
@@ -16,7 +19,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: 18 # or your required Node.js version
+          node-version: 20
 
       # Step 3: Install dependencies
       - name: Install Dependencies
@@ -25,7 +28,7 @@ jobs:
       # Step 4: Modify API Route
       - name: Uncomment API Route Lines
         run: |
-          sed -i '/UNCOMMENT_START/,/UNCOMMENT_END/s/^\/\/ //' ./pages/api/index.ts
+          sed -i '115,120s/^ *\/\/ //' ./pages/api/index.ts
 
       # Step 5: Run Development Server in Background
       - name: Start Development Server and Log Output
@@ -38,12 +41,12 @@ jobs:
       # Step 6: Send GET Request to API Route
       - name: Trigger API Route
         run: |
-          sleep 40 # Wait for the server to initialize
+          sleep 10 # Wait for the server to initialize
           curl http://localhost:3000/api?animated=false&username=kevzpeter
-          sleep 20 # Wait for response
+          sleep 15 # Wait for response
           echo "Running API for animated badges"
           curl http://localhost:3000/api?animated=true&username=kevzpeter
-          sleep 20 # Wait for response
+          sleep 15 # Wait for response
 
       # Step 7: Stop Development Server
       - name: Stop Development Server
@@ -54,14 +57,21 @@ jobs:
       # Step 8: Re-comment API Route Lines
       - name: Re-comment API Route Lines
         run: |
-          sed -i '/UNCOMMENT_START/,/UNCOMMENT_END/s/^/\/\// ' ./pages/api/index.ts
+          sed -i '115,120s/^/\/\/ /' ./pages/api/index.ts
 
       # Step 9: Commit and Push Updated Cache File
-      - name: Commit and Push Changes
+      - name: Commit changes
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git status
+          git checkout -B update-cache
           git add .
-          git commit -m "Automated cache update"
-          git push
+          git commit -m "Update cache file" || echo "No changes to commit"
+          git push origin update-cache --force
+      # Step 10: Create Pull Request
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v5
+        with:
+          branch: update-cache
+          title: "Automated Cache Update"
+          body: "This PR updates the cache file automatically."
