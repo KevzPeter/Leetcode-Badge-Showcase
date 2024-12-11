@@ -3,6 +3,9 @@ name: Update Cache File
 on:
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 jobs:
   update-cache:
     runs-on: ubuntu-latest
@@ -57,11 +60,18 @@ jobs:
           sed -i '115,120s/^/\/\/ /' ./pages/api/index.ts
 
       # Step 9: Commit and Push Updated Cache File
-      - name: Commit and Push Changes
+      - name: Commit changes
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git status
+          git checkout -B update-cache
           git add .
-          git commit -m "Automated cache update"
-          git push
+          git commit -m "Update cache file" || echo "No changes to commit"
+          git push origin update-cache --force
+      # Step 10: Create Pull Request
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v5
+        with:
+          branch: update-cache
+          title: "Automated Cache Update"
+          body: "This PR updates the cache file automatically."
