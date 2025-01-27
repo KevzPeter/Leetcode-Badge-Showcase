@@ -93,12 +93,12 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
                         badge.medal.config.iconGif = await convertGifToBase64(cache, badge.medal.config.iconGif);
                     }
                     catch (err) {
-                        // fallback to default icon
-                        badge.medal.config.iconGif = badge.icon;
-                    }
-                }
-            }
-        }
+// fallback to default icon
+//                         badge.medal.config.iconGif = badge.icon;
+//                     }
+//                 }
+//             }
+//         }
         // Converting Leetcode logo to inline base64 to prevent Github CSP violation.
         let imgSource = '';
         const imgURL = `${BASEURL}/leetcode-logo.png`;
