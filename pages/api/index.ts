@@ -93,12 +93,12 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
                         badge.medal.config.iconGif = await convertGifToBase64(cache, badge.medal.config.iconGif);
                     }
                     catch (err) {
-// fallback to default icon
-//                         badge.medal.config.iconGif = badge.icon;
-//                     }
-//                 }
-//             }
-//         }
+                        // fallback to default icon
+                        badge.medal.config.iconGif = badge.icon;
+                    }
+                }
+            }
+        }
         // Converting Leetcode logo to inline base64 to prevent Github CSP violation.
         let imgSource = '';
         const imgURL = `${BASEURL}/leetcode-logo.png`;
@@ -112,12 +112,12 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
          * Writing files does not work in Vercel deployments 🥲
          * Uncomment the following if you have your own Next server setup
          */
-// writeFile(base64File, JSON.stringify(cache), (err) => {
-//     if (err) {
-//         console.error(err.message);
-//         throw new Error("Failed to write file");
-//     }
-// });
+        // writeFile(base64File, JSON.stringify(cache), (err) => {
+        //     if (err) {
+        //         console.error(err.message);
+        //         throw new Error("Failed to write file");
+        //     }
+        // });
 
         //Converting response data to required format
         response = groupBy(response.matchedUser.badges, "category");
