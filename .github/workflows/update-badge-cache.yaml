@@ -12,6 +12,7 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           fetch-depth: 0
+          ref: update-cache
 
       - name: Setup Node.js
         uses: actions/setup-node@v3
@@ -24,7 +25,7 @@ jobs:
       - name: Update cache file
         run: |
           USERS=("kevzpeter" "numb3r5" "dtkalla")
-          sed -i '96,101s/^ *\/\/ //' ./pages/api/index.ts  
+          sed -i '115,120s/^ *\/\/ //' ./pages/api/index.ts  
           npm run dev &  
           sleep 5
           for USER in "${USERS[@]}"; do
@@ -32,7 +33,7 @@ jobs:
             curl "http://localhost:3000/api?animated=false&username=$USER"
           done
           pkill -f "npm run dev"
-          sed -i '96,101s/^/\/\/ /' ./pages/api/index.ts
+          sed -i '115,120s/^/\/\/ /' ./pages/api/index.ts
 
       - name: Commit changes
         run: |
@@ -46,5 +47,6 @@ jobs:
         uses: peter-evans/create-pull-request@v5
         with:
           branch: update-cache
+          base: main
           title: "Automated Cache Update"
           body: "This PR updates the cache file automatically."
