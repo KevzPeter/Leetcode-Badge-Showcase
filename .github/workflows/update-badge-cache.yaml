@@ -46,7 +46,7 @@ jobs:
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v5
         with:
-          branch: main
-          base: update-cache
+          branch: update-cache
+          base: main
           title: "Automated Cache Update"
           body: "This PR updates the cache file automatically."
