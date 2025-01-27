@@ -29,8 +29,8 @@ jobs:
           npm run dev &  
           sleep 5
           for USER in "${USERS[@]}"; do
-            curl "http://localhost:3000/api?animated=true&username=$USER"
-            curl "http://localhost:3000/api?animated=false&username=$USER"
+            curl -s -o /dev/null "http://localhost:3000/api?animated=true&username=$USER"
+            curl -s -o /dev/null "http://localhost:3000/api?animated=false&username=$USER"
           done
           pkill -f "npm run dev"
           sed -i '115,120s/^/\/\/ /' ./pages/api/index.ts
