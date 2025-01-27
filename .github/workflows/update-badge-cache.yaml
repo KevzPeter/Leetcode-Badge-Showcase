@@ -40,8 +40,6 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-
-          # Check if there are any changes
           if [ -n "$(git status --porcelain)" ]; then
             git add .
             git commit -m "Update cache file"
@@ -49,6 +47,7 @@ jobs:
           else
             echo "No changes to commit."
             echo "changes_detected=false" >> $GITHUB_ENV
+          fi
 
       - name: Push changes
         if: env.changes_detected == 'true'
