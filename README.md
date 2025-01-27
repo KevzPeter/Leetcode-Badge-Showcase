@@ -1,4 +1,5 @@
 <a id="readme-top"></a>
+
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
@@ -20,19 +21,20 @@
 </div>
 
 <div align="center">
-<img src="https://leetcode-badge-showcase.vercel.app/api?username=kevzpeter" />
+<img src="https://leetcode-badge-showcase.vercel.app/api?username=kevzpeter&filter=annual" />
 </div>
 
-## 🚀 Add to your README page 
+## 🚀 Add to your README page
+
 <br/>
 
 Add the following line to your Github README.md (or HTML) page and replace {your-leetcode-username} ⤵️
 
 ```html
-<img src="https://leetcode-badge-showcase.vercel.app/api?username={your-leetcode-username}" alt="LeetCode Badges"/>
+<img src="https://leetcode-badge-showcase.vercel.app/api?username={your-leetcode-username}" alt="LeetCode Badges" />
 ```
- 
- Or even this way ⤵️
+
+Or even this way ⤵️
 
 ```mark
 ![LeetCode Badges](https://leetcode-badge-showcase.vercel.app/api?username={your-leetcode-username})
@@ -44,18 +46,19 @@ For example, if your Leetcode username is "kevzpeter", add the following line:
 ![LeetCode Badges](https://leetcode-badge-showcase.vercel.app/api?username=kevzpeter&animated=true)
 ```
 
-👉🏼 *Image not rendering? Simply refresh the page!* 
+👉🏼 _Image not rendering? Simply refresh the page!_
 <br/>
 
 ## ✨ Animated Badges
 
-To animate your badges in the showcase, add the parameter *animated* to the url and set its value to `true`:
+To animate your badges in the showcase, add the parameter _animated_ to the url and set its value to `true`:
 
 ```html
-<img src="https://leetcode-badge-showcase.vercel.app/api?username={your-leetcode-username}&animated=true" alt="LeetCode Badges"/>
+<img src="https://leetcode-badge-showcase.vercel.app/api?username={your-leetcode-username}&animated=true" alt="LeetCode Badges" />
 ```
 
 ### Example
+
 ![LeetCode Badges](https://leetcode-badge-showcase.vercel.app/api?username=kevzpeter&animated=true&filter=annual)
 
 ## 🎨 Themes
@@ -63,24 +66,24 @@ To animate your badges in the showcase, add the parameter *animated* to the url 
 Want to spice up the look and feel of your badge showcase?
 You can choose your favorite among 16 different themes!
 
-Simply add the *theme* parameter to the url like so:
+Simply add the _theme_ parameter to the url like so:
 
 ```html
-<img src="https://leetcode-badge-showcase.vercel.app/api?username={your-leetcode-username}&theme={your-theme}" alt="LeetCode Badges"/>
+<img src="https://leetcode-badge-showcase.vercel.app/api?username={your-leetcode-username}&theme={your-theme}" alt="LeetCode Badges" />
 ```
 
 ### Examples
 
-| | |
-| :--: | :--: |
-| `light` <br /> ![light][light] | `dark` <br />  ![dark][dark] |
-| `github-dark` <br />  ![github-dark][github-dark] | `monokai` <br />  ![monokai][monokai] |
-| `tokyonight` <br />  ![tokyonight][tokyonight] | `nightowl` <br />  ![nightowl][nightowl] |
-| `onedark` <br />  ![onedark][onedark] | `shades-of-purple` <br />  ![shades-of-purple][shades-of-purple] 
-| `dracula` <br />  ![dracula][dracula] | `cobalt2` <br />  ![cobalt2][cobalt2] |
-| `sky` <br />  ![sky][sky] | `beach` <br />  ![beach][beach] |
-| `purple-gang` <br />  ![purple-gang][purple-gang] | `mint` <br />  ![mint][mint] |
-| `leafy` <br />  ![leafy][leafy] | `black` <br />  ![black][black] |
+|                                                  |                                                                 |
+| :----------------------------------------------: | :-------------------------------------------------------------: |
+|          `light` <br /> ![light][light]          |                   `dark` <br /> ![dark][dark]                   |
+| `github-dark` <br /> ![github-dark][github-dark] |              `monokai` <br /> ![monokai][monokai]               |
+|  `tokyonight` <br /> ![tokyonight][tokyonight]   |             `nightowl` <br /> ![nightowl][nightowl]             |
+|       `onedark` <br /> ![onedark][onedark]       | `shades-of-purple` <br /> ![shades-of-purple][shades-of-purple] |
+|       `dracula` <br /> ![dracula][dracula]       |              `cobalt2` <br /> ![cobalt2][cobalt2]               |
+|             `sky` <br /> ![sky][sky]             |                 `beach` <br /> ![beach][beach]                  |
+| `purple-gang` <br /> ![purple-gang][purple-gang] |                   `mint` <br /> ![mint][mint]                   |
+|          `leafy` <br /> ![leafy][leafy]          |                 `black` <br /> ![black][black]                  |
 
 [light]: https://leetcode-badge-showcase.vercel.app/api?username=kevzpeter&theme=light&filter=study
 [dark]: https://leetcode-badge-showcase.vercel.app/api?username=kevzpeter&theme=dark&filter=study
@@ -103,10 +106,10 @@ Simply add the *theme* parameter to the url like so:
 
 ## ✂️ Filters
 
-Wanna only show a specific set of badges ? Add a *filter* parameter like so :
+Wanna only show a specific set of badges ? Add a _filter_ parameter like so :
 
 ```html
-<img src="https://leetcode-badge-showcase.vercel.app/api?username={your-leetcode-username}&filter={your-filter}" alt="LeetCode Badges"/>
+<img src="https://leetcode-badge-showcase.vercel.app/api?username={your-leetcode-username}&filter={your-filter}" alt="LeetCode Badges" />
 ```
 
 - Competitive Badges: &filter=`comp`
@@ -115,30 +118,33 @@ Wanna only show a specific set of badges ? Add a *filter* parameter like so :
 - Annual Badges: &filter=`annual`
 - Submission Badges: &filter=`submission`
 
-
 <!-- BUILT WITH -->
-## 🔧 Built With 
+
+## 🔧 Built With
+
 <br/>
 
-* [![Next][Next.js]][Next-url]
-* [![React][React.js]][React-url]
+- [![Next][Next.js]][Next-url]
+- [![React][React.js]][React-url]
 
 <!-- SET UP -->
-## 🏗️ Set Up your own Server 
 
-* Make sure you have Node.js installed
-* Clone the repository
-* Run *npm i* in the root directory
-* Run *npm run dev* to make sure everything's working fine
-* Replace BASEURL in *utils/config.ts* to the deployment url of your choice 
-* Deploy to Vercel with the same deployment url
-* Head over to https://{your-vercel-deployment-url}/api?username={your-leetcode-username} to view the results
-* Oh, and make sure to update the links in your README file as well :P
+## 🏗️ Set Up your own Server
+
+- Make sure you have Node.js installed
+- Clone the repository
+- Run _npm i_ in the root directory
+- Run _npm run dev_ to make sure everything's working fine
+- Replace BASEURL in _utils/config.ts_ to the deployment url of your choice
+- Deploy to Vercel with the same deployment url
+- Head over to https://{your-vercel-deployment-url}/api?username={your-leetcode-username} to view the results
+- Oh, and make sure to update the links in your README file as well :P
 
 <br/>
 
 <!-- CONTRIBUTING -->
-## 🙌🏼 Contributing 
+
+## 🙌🏼 Contributing
 
 If you wanna add your custom theme or suggest enhancements, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement".
 Don't forget to give the project a star! Thanks again!
@@ -151,9 +157,9 @@ Don't forget to give the project a star! Thanks again!
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
+
 [contributors-shield]: https://img.shields.io/github/contributors/othneildrew/Best-README-Template.svg?style=for-the-badge
 [contributors-url]: https://github.com/othneildrew/Best-README-Template/graphs/contributors
 [forks-shield]: https://img.shields.io/github/forks/othneildrew/Best-README-Template.svg?style=for-the-badge
