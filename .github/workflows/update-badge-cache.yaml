@@ -51,4 +51,4 @@ jobs:
 
       - name: Push changes
         if: env.changes_detected == 'true'
-        run: git push origin update-cache
+        run: git push origin main
