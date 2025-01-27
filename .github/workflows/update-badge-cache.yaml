@@ -3,72 +3,45 @@ name: Update Cache File
 on:
   workflow_dispatch:
 
-permissions:
-  contents: write
-
 jobs:
   update-cache:
     runs-on: ubuntu-latest
-
     steps:
-      # Step 1: Check out the repository
-      - name: Checkout Repository
+      - name: Checkout code
         uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 0
 
-      # Step 2: Set up Node.js
-      - name: Set up Node.js
+      - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
           node-version: 20
 
-      # Step 3: Install dependencies
-      - name: Install Dependencies
+      - name: Install dependencies
         run: npm install
 
-      # Step 4: Modify API Route
-      - name: Uncomment API Route Lines
+      - name: Update cache file
         run: |
-          sed -i '115,120s/^ *\/\/ //' ./pages/api/index.ts
+          USERS=("kevzpeter" "numb3r5" "dtkalla")
+          sed -i '96,101s/^ *\/\/ //' ./pages/api/index.ts  
+          npm run dev &  
+          sleep 5
+          for USER in "${USERS[@]}"; do
+            curl "http://localhost:3000/api?animated=true&username=$USER"
+            curl "http://localhost:3000/api?animated=false&username=$USER"
+          done
+          pkill -f "npm run dev"
+          sed -i '96,101s/^/\/\/ /' ./pages/api/index.ts
 
-      # Step 5: Run Development Server in Background
-      - name: Start Development Server and Log Output
-        run: |
-          npm run dev > server.log 2>&1 &
-          echo $! > dev_server_pid.txt
-          sleep 15
-          cat server.log
-
-      # Step 6: Send GET Request to API Route
-      - name: Trigger API Route
-        run: |
-          sleep 10 # Wait for the server to initialize
-          curl http://localhost:3000/api?animated=false&username=kevzpeter
-          sleep 15 # Wait for response
-          echo "Running API for animated badges"
-          curl http://localhost:3000/api?animated=true&username=kevzpeter
-          sleep 15 # Wait for response
-
-      # Step 7: Stop Development Server
-      - name: Stop Development Server
-        run: |
-          kill $(cat dev_server_pid.txt)
-          rm dev_server_pid.txt
-
-      # Step 8: Re-comment API Route Lines
-      - name: Re-comment API Route Lines
-        run: |
-          sed -i '115,120s/^/\/\/ /' ./pages/api/index.ts
-
-      # Step 9: Commit and Push Updated Cache File
       - name: Commit changes
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git checkout -B update-cache
           git add .
           git commit -m "Update cache file" || echo "No changes to commit"
           git push origin update-cache --force
-      # Step 10: Create Pull Request
+
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v5
         with:
