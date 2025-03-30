@@ -112,11 +112,16 @@ Wanna only show a specific set of badges ? Add a _filter_ parameter like so :
 <img src="https://leetcode-badge-showcase.vercel.app/api?username={your-leetcode-username}&filter={your-filter}" alt="LeetCode Badges" />
 ```
 
-- Competitive Badges: &filter=`comp`
-- Daily Challenge: &filter=`daily`
-- Study Plan: &filter=`study`
-- Annual Badges: &filter=`annual`
-- Submission Badges: &filter=`submission`
+- Competitive Badges: `comp`
+  ![Competition Badges](https://leetcode-badge-showcase.vercel.app/api?username=kevzpeter&theme=github-dark&filter=comp)
+- Study Plan: `study`
+  ![Study Plan Badges](https://leetcode-badge-showcase.vercel.app/api?username=kevzpeter&theme=github-dark&filter=study)
+- Annual Badges: `annual`
+  ![Annual Badges](https://leetcode-badge-showcase.vercel.app/api?username=kevzpeter&theme=github-dark&filter=annual)
+- Submission Badges: `submission`
+  ![Submission Badges](https://leetcode-badge-showcase.vercel.app/api?username=kevzpeter&theme=github-dark&filter=submission)
+- Daily Challenge: `daily`
+  ![Daily Challenge Badges](https://leetcode-badge-showcase.vercel.app/api?username=kevzpeter&theme=github-dark&filter=daily)
 
 <!-- BUILT WITH -->
 
