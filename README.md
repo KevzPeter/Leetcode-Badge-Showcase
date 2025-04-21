@@ -59,6 +59,23 @@ To animate your badges in the showcase, add the parameter _animated_ to the url 
 
 ![LeetCode Badges](https://leetcode-badge-showcase.vercel.app/api?username=kevzpeter&animated=true&filter=annual)
 
+## 🖌️ Border
+
+Want to hide the border? add the parameter _border_ to the url and set its value to `no-border`:
+
+```html
+<img src="https://leetcode-badge-showcase.vercel.app/api?username={your-leetcode-username}&border=no-border" alt="LeetCode Badges" />
+```
+
+### Examples
+
+|                                  |                                                  |
+| :------------------------------: | :----------------------------------------------: |
+| `border` <br/> ![border][border] | `no-border` <br/> ![no-border][no-border] |
+
+[border]: https://leetcode-badge-showcase.vercel.app/api?username=kevzpeter&border=border&filter=annual
+[no-border]: https://leetcode-badge-showcase.vercel.app/api?username=kevzpeter&border=no-border&filter=annual
+
 ## 🎨 Themes
 
 Want to spice up the look and feel of your badge showcase?
