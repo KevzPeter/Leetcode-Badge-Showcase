@@ -6,6 +6,9 @@ import themes from '../utils/themes.json';
  */
 export default function SvgWidget({ response, username, imgSource, theme, border, animated }): JSX.Element {
     const borderStyle = border === 'border' ? '1px solid #E4E2E2' : 'none';
+    // Make SVG have transparent background if using invisible theme
+    const isTransparent = theme === 'invisible';
+    
     return (
         <g>
             <foreignObject x="0" y="0" width="100%" height="100%">
@@ -14,16 +17,16 @@ export default function SvgWidget({ response, username, imgSource, theme, border
                         <div
                             className="showCase"
                             style={{
-                                'background-color': `${themes[theme].background}`,
-                                'border': borderStyle,
+                                backgroundColor: `${themes[theme].background}`,
+                                border: borderStyle,
                             }}
                         >
                             <div>
-                                <span style={{ 'color': `${themes[theme].colorPrimary}` }} className='header'>
+                                <span style={{ color: `${themes[theme].colorPrimary}` }} className='header'>
                                     <img src={imgSource} alt="LeetCode Logo" title="LeetCode Logo" width={36} height={36} />
                                     <span>{username} LeetCode Badges</span>
                                 </span>
-                                <hr style={{ 'background-color': `${themes[theme].colorSecondary}` }} />
+                                <hr style={{ backgroundColor: `${themes[theme].colorSecondary}` }} />
                             </div>
                             {response?.map((category: Object, index: number) => {
                                 return (<Category category={category} key={index} theme={theme} border={border} animated={animated} />)
