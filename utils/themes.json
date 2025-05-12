@@ -79,7 +79,7 @@
     "colorPrimary": "#efefef",
     "colorSecondary": "#fff"
   },
-  "invisible": {
+  "transparent": {
     "background": "transparent",
     "colorPrimary": "#0070f3",
     "colorSecondary": "#034078"

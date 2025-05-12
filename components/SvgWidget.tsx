@@ -6,8 +6,8 @@ import themes from '../utils/themes.json';
  */
 export default function SvgWidget({ response, username, imgSource, theme, border, animated }): JSX.Element {
     const borderStyle = border === 'border' ? '1px solid #E4E2E2' : 'none';
-    // Make SVG have transparent background if using invisible theme
-    const isTransparent = theme === 'invisible';
+    // Make SVG have transparent background if using transparent theme
+    const isTransparent = theme === 'transparent';
     
     return (
         <g>

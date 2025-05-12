@@ -41,7 +41,7 @@ export function generateSvg(response: Array<any>, username: string, imgSource: s
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
         font-family="Segoe UI, sans-serif"
-        ${theme === 'invisible' ? 'style="background: transparent;"' : ''}
+        ${theme === 'transparent' ? 'style="background: transparent;"' : ''}
     >
     <style>${allStyles}</style>
     ${svgBody}

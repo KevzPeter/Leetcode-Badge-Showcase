@@ -99,7 +99,7 @@ Simply add the _theme_ parameter to the url like so:
 |             `sky` <br /> ![sky][sky]             |                 `beach` <br /> ![beach][beach]                  |
 | `purple-gang` <br /> ![purple-gang][purple-gang] |                   `mint` <br /> ![mint][mint]                   |
 |          `leafy` <br /> ![leafy][leafy]          |                 `black` <br /> ![black][black]                  |
-|    `invisible` <br /> ![invisible][invisible]    |                                                                 |
+|    `transparent` <br /> ![transparent][transparent]    |                                                                 |
 
 [light]: https://leetcode-badge-showcase.vercel.app/api?username=kevzpeter&theme=light&filter=study
 [dark]: https://leetcode-badge-showcase.vercel.app/api?username=kevzpeter&theme=dark&filter=study
@@ -117,7 +117,7 @@ Simply add the _theme_ parameter to the url like so:
 [mint]: https://leetcode-badge-showcase.vercel.app/api?username=kevzpeter&theme=mint&filter=study
 [leafy]: https://leetcode-badge-showcase.vercel.app/api?username=kevzpeter&theme=leafy&filter=study
 [black]: https://leetcode-badge-showcase.vercel.app/api?username=kevzpeter&theme=black&filter=study
-[invisible]: https://leetcode-badge-showcase.vercel.app/api?username=kevzpeter&theme=invisible&filter=study
+[transparent]: https://leetcode-badge-showcase.vercel.app/api?username=kevzpeter&theme=transparent&filter=study
 
 <br/>
 
