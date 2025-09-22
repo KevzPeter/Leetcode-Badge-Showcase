@@ -78,14 +78,13 @@ const Home: NextPage = () => {
           </select>
           <label htmlFor="animated">✨ Animated Badges</label>
           <select name='animated'>
-            <option value='false'>false</option>
-            <option value='true'>true</option>
+            <option value='true'>Yes</option>
+            <option value='false'>No</option>
           </select>
           <label htmlFor="border">🖌️ Border</label>
           <select name='border'>
-            {border.map((border, index) => {
-              return <option key={index} value={border}>{border}</option>
-            })}
+            <option value='border'>Yes</option>
+            <option value='no-border'>No</option>
           </select>
           <button className={styles.btn} type="submit">Get Badges!</button>
         </form>
