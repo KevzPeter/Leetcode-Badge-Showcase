@@ -1,0 +1,25 @@
+## Static export served by nginx (does NOT support Next.js API routes)
+## Build context MUST be the repo root.
+##
+##   docker build -f docker/Dockerfile.nginx -t leetcode-badge-showcase-static .
+##   docker run --rm -p 8080:80 leetcode-badge-showcase-static
+
+FROM node:18-alpine AS builder
+WORKDIR /app
+ENV NEXT_TELEMETRY_DISABLED=1
+ENV NEXT_BUILD_OUTPUT=export
+
+COPY package.json package-lock.json ./
+RUN npm ci
+
+COPY . .
+RUN npm run build
+
+FROM nginx:alpine
+COPY docker/nginx/nginx.conf /etc/nginx/nginx.conf
+
+RUN rm -rf /usr/share/nginx/html/*
+COPY --from=builder /app/out /usr/share/nginx/html
+
+EXPOSE 80
+ENTRYPOINT ["nginx", "-g", "daemon off;"]

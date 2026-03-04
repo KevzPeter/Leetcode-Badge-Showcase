@@ -1,12 +1,15 @@
 /** @type {import('next').NextConfig} */
+const buildOutput = process.env.NEXT_BUILD_OUTPUT
+const output = buildOutput === 'standalone' || buildOutput === 'export' ? buildOutput : undefined
+
 const nextConfig = {
   images: {
     domains: ['leetcode.com'],
   },
   reactStrictMode: false,
   swcMinify: true,
-  // uncomment the line below before building docker image
-  // output: "standalone",
+  ...(output ? { output } : {}),
 }
 
 module.exports = nextConfig
+
