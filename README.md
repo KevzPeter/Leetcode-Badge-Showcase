@@ -59,23 +59,6 @@ To animate your badges in the showcase, add the parameter _animated_ to the url 
 
 ![LeetCode Badges](https://leetcode-badge-showcase.vercel.app/api?username=kevzpeter&animated=true&filter=annual)
 
-## 🖌️ Border
-
-Want to hide the border? add the parameter _border_ to the url and set its value to `no-border`:
-
-```html
-<img src="https://leetcode-badge-showcase.vercel.app/api?username={your-leetcode-username}&border=no-border" alt="LeetCode Badges" />
-```
-
-### Examples
-
-|                                  |                                                  |
-| :------------------------------: | :----------------------------------------------: |
-| `border` <br/> ![border][border] | `no-border` <br/> ![no-border][no-border] |
-
-[border]: https://leetcode-badge-showcase.vercel.app/api?username=kevzpeter&border=border&filter=annual
-[no-border]: https://leetcode-badge-showcase.vercel.app/api?username=kevzpeter&border=no-border&filter=annual
-
 ## 🎨 Themes
 
 Want to spice up the look and feel of your badge showcase?
@@ -99,7 +82,7 @@ Simply add the _theme_ parameter to the url like so:
 |             `sky` <br /> ![sky][sky]             |                 `beach` <br /> ![beach][beach]                  |
 | `purple-gang` <br /> ![purple-gang][purple-gang] |                   `mint` <br /> ![mint][mint]                   |
 |          `leafy` <br /> ![leafy][leafy]          |                 `black` <br /> ![black][black]                  |
-|    `transparent` <br /> ![transparent][transparent]    |                                                                 |
+| `transparent` <br /> ![transparent][transparent] |                                                                 |
 
 [light]: https://leetcode-badge-showcase.vercel.app/api?username=kevzpeter&theme=light&filter=study
 [dark]: https://leetcode-badge-showcase.vercel.app/api?username=kevzpeter&theme=dark&filter=study
@@ -142,6 +125,9 @@ Wanna only show a specific set of badges ? Add a _filter_ parameter like so :
 [annual]: https://leetcode-badge-showcase.vercel.app/api?username=kevzpeter&theme=github-dark&filter=annual
 [submission]: https://leetcode-badge-showcase.vercel.app/api?username=kevzpeter&theme=github-dark&filter=submission
 [daily]: https://leetcode-badge-showcase.vercel.app/api?username=kevzpeter&theme=github-dark&filter=daily
+
+> [!TIP]
+> Want to hide the border? add the parameter `border` to the url and set its value to `no-border`:
 
 <!-- BUILT WITH -->
 
