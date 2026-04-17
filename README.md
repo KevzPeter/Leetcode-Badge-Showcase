@@ -84,23 +84,23 @@ Simply add the _theme_ parameter to the url like so:
 |          `leafy` <br /> ![leafy][leafy]          |                 `black` <br /> ![black][black]                  |
 | `transparent` <br /> ![transparent][transparent] |                                                                 |
 
-[light]: https://leetcode-badge-showcase.vercel.app/api?username=kevzpeter&theme=light&filter=study
-[dark]: https://leetcode-badge-showcase.vercel.app/api?username=kevzpeter&theme=dark&filter=study
-[github-dark]: https://leetcode-badge-showcase.vercel.app/api?username=kevzpeter&theme=github-dark&filter=study
-[monokai]: https://leetcode-badge-showcase.vercel.app/api?username=kevzpeter&theme=monokai&filter=study
-[tokyonight]: https://leetcode-badge-showcase.vercel.app/api?username=kevzpeter&theme=tokyonight&filter=study
-[nightowl]: https://leetcode-badge-showcase.vercel.app/api?username=kevzpeter&theme=nightowl&filter=study
-[onedark]: https://leetcode-badge-showcase.vercel.app/api?username=kevzpeter&theme=onedark&filter=study
-[shades-of-purple]: https://leetcode-badge-showcase.vercel.app/api?username=kevzpeter&theme=shades-of-purple&filter=study
-[dracula]: https://leetcode-badge-showcase.vercel.app/api?username=kevzpeter&theme=dracula&filter=study
-[cobalt2]: https://leetcode-badge-showcase.vercel.app/api?username=kevzpeter&theme=cobalt2&filter=study
-[sky]: https://leetcode-badge-showcase.vercel.app/api?username=kevzpeter&theme=sky&filter=study
-[beach]: https://leetcode-badge-showcase.vercel.app/api?username=kevzpeter&theme=beach&filter=study
-[purple-gang]: https://leetcode-badge-showcase.vercel.app/api?username=kevzpeter&theme=purple-gang&filter=study
-[mint]: https://leetcode-badge-showcase.vercel.app/api?username=kevzpeter&theme=mint&filter=study
-[leafy]: https://leetcode-badge-showcase.vercel.app/api?username=kevzpeter&theme=leafy&filter=study
-[black]: https://leetcode-badge-showcase.vercel.app/api?username=kevzpeter&theme=black&filter=study
-[transparent]: https://leetcode-badge-showcase.vercel.app/api?username=kevzpeter&theme=transparent&filter=study
+[light]: https://leetcode-badge-showcase.vercel.app/api?username=kevzpeter&theme=light&filter=study&limit=4
+[dark]: https://leetcode-badge-showcase.vercel.app/api?username=kevzpeter&theme=dark&filter=study&limit=4
+[github-dark]: https://leetcode-badge-showcase.vercel.app/api?username=kevzpeter&theme=github-dark&filter=study&limit=4
+[monokai]: https://leetcode-badge-showcase.vercel.app/api?username=kevzpeter&theme=monokai&filter=study&limit=4
+[tokyonight]: https://leetcode-badge-showcase.vercel.app/api?username=kevzpeter&theme=tokyonight&filter=study&limit=4
+[nightowl]: https://leetcode-badge-showcase.vercel.app/api?username=kevzpeter&theme=nightowl&filter=study&limit=4
+[onedark]: https://leetcode-badge-showcase.vercel.app/api?username=kevzpeter&theme=onedark&filter=study&limit=4
+[shades-of-purple]: https://leetcode-badge-showcase.vercel.app/api?username=kevzpeter&theme=shades-of-purple&filter=study&limit=4
+[dracula]: https://leetcode-badge-showcase.vercel.app/api?username=kevzpeter&theme=dracula&filter=study&limit=4
+[cobalt2]: https://leetcode-badge-showcase.vercel.app/api?username=kevzpeter&theme=cobalt2&filter=study&limit=4
+[sky]: https://leetcode-badge-showcase.vercel.app/api?username=kevzpeter&theme=sky&filter=study&limit=4
+[beach]: https://leetcode-badge-showcase.vercel.app/api?username=kevzpeter&theme=beach&filter=study&limit=4
+[purple-gang]: https://leetcode-badge-showcase.vercel.app/api?username=kevzpeter&theme=purple-gang&filter=study&limit=4
+[mint]: https://leetcode-badge-showcase.vercel.app/api?username=kevzpeter&theme=mint&filter=study&limit=4
+[leafy]: https://leetcode-badge-showcase.vercel.app/api?username=kevzpeter&theme=leafy&filter=study&limit=4
+[black]: https://leetcode-badge-showcase.vercel.app/api?username=kevzpeter&theme=black&filter=study&limit=4
+[transparent]: https://leetcode-badge-showcase.vercel.app/api?username=kevzpeter&theme=transparent&filter=study&limit=4
 
 <br/>
 
@@ -120,11 +120,11 @@ Wanna only show a specific set of badges ? Add a _filter_ parameter like so :
 | Submission Badges: `submission` | ![Submission Badges][submission] |
 |    Daily Challenge: `daily`     | ![Daily Challenge Badges][daily] |
 
-[comp]: https://leetcode-badge-showcase.vercel.app/api?username=kevzpeter&theme=github-dark&filter=comp
-[study]: https://leetcode-badge-showcase.vercel.app/api?username=kevzpeter&theme=github-dark&filter=study
-[annual]: https://leetcode-badge-showcase.vercel.app/api?username=kevzpeter&theme=github-dark&filter=annual
-[submission]: https://leetcode-badge-showcase.vercel.app/api?username=kevzpeter&theme=github-dark&filter=submission
-[daily]: https://leetcode-badge-showcase.vercel.app/api?username=kevzpeter&theme=github-dark&filter=daily
+[comp]: https://leetcode-badge-showcase.vercel.app/api?username=kevzpeter&theme=github-dark&filter=comp&limit=4
+[study]: https://leetcode-badge-showcase.vercel.app/api?username=kevzpeter&theme=github-dark&filter=study&limit=4
+[annual]: https://leetcode-badge-showcase.vercel.app/api?username=kevzpeter&theme=github-dark&filter=annual&limit=8
+[submission]: https://leetcode-badge-showcase.vercel.app/api?username=kevzpeter&theme=github-dark&filter=submission&limit=8
+[daily]: https://leetcode-badge-showcase.vercel.app/api?username=kevzpeter&theme=github-dark&filter=daily&limit=8
 
 > [!TIP]
 > Want to hide the border? add the parameter `border` to the url and set its value to `no-border`:
