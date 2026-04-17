@@ -2,11 +2,11 @@ import Badge from "./Badge";
 import themes from '../utils/themes.json';
 
 const categoryEnum = {
-    DCC: 'Daily Badges',
-    STUDY_PLAN: 'Study Plan Badges',
-    COMPETITION: 'Competition Badges',
-    ANNUAL: 'Annual Badges',
-    SUBMISSION: 'Submission Badges'
+    DCC: 'Daily Medals',
+    STUDY_PLAN: 'Study Plan Medals',
+    COMPETITION: 'Competition Medals',
+    ANNUAL: 'Annual Medals',
+    SUBMISSION: 'Submission Days'
 }
 
 const Category = ({ category, theme, animated }) => {
