@@ -8,7 +8,7 @@ export default function SvgWidget({ response, username, imgSource, theme, border
     const borderStyle = border === 'border' ? '1px solid #E4E2E2' : 'none';
     // Make SVG have transparent background if using transparent theme
     const isTransparent = theme === 'transparent';
-    
+
     return (
         <g>
             <foreignObject x="0" y="0" width="100%" height="100%">
@@ -24,7 +24,7 @@ export default function SvgWidget({ response, username, imgSource, theme, border
                             <div>
                                 <span style={{ color: `${themes[theme].colorPrimary}` }} className='header'>
                                     <img src={imgSource} alt="LeetCode Logo" title="LeetCode Logo" width={36} height={36} />
-                                    <span>{username} LeetCode Badges</span>
+                                    <span>{username?.trim() ? `${username.trim()} LeetCode Badges` : 'LeetCode Badges'}</span>
                                 </span>
                                 <hr style={{ backgroundColor: `${themes[theme].colorSecondary}` }} />
                             </div>

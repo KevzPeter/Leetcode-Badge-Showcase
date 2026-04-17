@@ -129,6 +129,33 @@ Wanna only show a specific set of badges ? Add a _filter_ parameter like so :
 > [!TIP]
 > Want to hide the border? add the parameter `border` to the url and set its value to `no-border`:
 
+<br/>
+
+## 🙈 Hide Username
+
+Want to hide your username from the card header?
+Add the parameter `anon` to the url and set its value to `true`.
+
+When enabled, the card header will show **"LeetCode Badges"** instead of **"{username} LeetCode Badges"**.
+
+<br/>
+
+## 🔢 Limit Badges
+
+If you have a lot of badges and want a smaller card, you can limit the **total number of badges** displayed to the latest `x` badges earned.
+
+Add the parameter `limit` to the url like so:
+
+```html
+<img src="https://leetcode-badge-showcase.vercel.app/api?username={your-leetcode-username}&limit=10" alt="LeetCode Badges" />
+```
+
+You can combine it with other parameters (e.g. filter + animated):
+
+```mark
+![LeetCode Badges](https://leetcode-badge-showcase.vercel.app/api?username=kevzpeter&filter=annual&animated=true&limit=12)
+```
+
 <!-- BUILT WITH -->
 
 ## 🔧 Built With

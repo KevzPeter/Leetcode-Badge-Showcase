@@ -6,9 +6,11 @@ export interface Params {
     username: string,
     filter: string,
     json: string,
-    theme: string
+    theme: string,
     border: string,
-    animated: string
+    animated: string,
+    anon: string,
+    limit?: number
 }
 export interface Badge {
     id: string,

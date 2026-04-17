@@ -20,20 +20,11 @@ jobs:
           node-version: 20
 
       - name: Install dependencies
-        run: npm install
+        run: npm ci
 
       - name: Update cache file
         run: |
-          USERS=("kevzpeter" "numb3r5" "dtkalla")
-          sed -i '115,120s/^ *\/\/ //' ./pages/api/index.ts  
-          npm run dev &  
-          sleep 5
-          for USER in "${USERS[@]}"; do
-            curl -s -o /dev/null "http://localhost:3000/api?animated=true&username=$USER"
-            curl -s -o /dev/null "http://localhost:3000/api?animated=false&username=$USER"
-          done
-          pkill -f "npm run dev"
-          sed -i '115,120s/^/\/\/ /' ./pages/api/index.ts
+          npm run update-cache -- --users "LeoHunt,hc167,u77"
 
       - name: Commit changes
         id: commit_changes

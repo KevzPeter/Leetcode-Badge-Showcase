@@ -11,6 +11,26 @@ import { readFileSync, writeFile } from 'fs';
 import sharp from 'sharp';
 import { validationSchema } from '../../utils/validation.schema';
 
+let inMemoryCache: any | null = null;
+let inMemoryCacheMtimeMs: number | null = null;
+
+const readBase64Cache = (base64File: string) => {
+    try {
+        const stat = require('fs').statSync(base64File);
+        if (inMemoryCache && inMemoryCacheMtimeMs === stat.mtimeMs) return inMemoryCache;
+        const base64JSONString = readFileSync(base64File, 'utf-8');
+        const parsed = JSON.parse(base64JSONString);
+        inMemoryCache = parsed;
+        inMemoryCacheMtimeMs = stat.mtimeMs;
+        return parsed;
+    } catch (e) {
+        // If cache file doesn't exist or is invalid, fall back to empty object.
+        inMemoryCache = {};
+        inMemoryCacheMtimeMs = null;
+        return {};
+    }
+}
+
 export default async function handler(req: NextApiRequest, res: NextApiResponse<Data | string>): Promise<any> {
     try {
         console.log(`Incoming Request: ${JSON.stringify(req.query)}`);
@@ -22,7 +42,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
             })
         }
         console.log(value);
-        let { username, theme, filter, border, json, animated }: Params = value;
+        let { username, theme, filter, border, json, animated, anon, limit }: Params = value;
         if (filter) filter = FILTERS[`${filter}`];
 
         //GraphQL query to fetch badges from Leetcode's API endpoint
@@ -43,9 +63,23 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
         const variables = { username };
         let response: GraphQLResponse = await request(`${LEETCODE_BASEURL}/graphql/`, gqlQuery, variables);
 
-        if (response.matchedUser.badges.length === 0) {
+        const allBadges = response?.matchedUser?.badges ?? [];
+        if (allBadges.length === 0) {
             return res.status(200).json({ status: "success", body: "The user has unlocked 0 badges" });
         }
+
+        // Apply optional category filter + optional "latest X" limit before any image conversions.
+        let badgesToShow = allBadges;
+        if (filter) {
+            badgesToShow = badgesToShow.filter((badge: any) => badge?.category === filter);
+        }
+        if (typeof limit === 'number') {
+            badgesToShow = limitBadgesToLatest(badgesToShow, limit);
+        }
+        if (badgesToShow.length === 0) {
+            return res.status(400).json({ status: 'error', body: "No badges found with given filter or some other error occurred 😕" });
+        }
+        response.matchedUser.badges = badgesToShow;
 
         /**
          * "public/files/base64.txt" is a file containing a stringified JSON object of 
@@ -55,8 +89,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
          */
 
         const base64File = path.join(process.cwd(), 'public', 'cache', 'base64.txt');
-        const base64JSONString = readFileSync(base64File, 'utf-8');
-        let cache = JSON.parse(base64JSONString);
+        let cache = readBase64Cache(base64File);
 
         /**
          * Converting badge icon asset fetched from source url to base64 string
@@ -102,8 +135,13 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
         // Converting Leetcode logo to inline base64 to prevent Github CSP violation.
         let imgSource = '';
         const imgURL = `${BASEURL}/leetcode-logo.png`;
-        if (cache.imgURL) {
+        if (cache[imgURL]) {
+            imgSource = cache[imgURL]
+        }
+        else if (cache.imgURL) {
+            // Backwards compatibility: older cache used a literal key.
             imgSource = cache.imgURL
+            cache[imgURL] = imgSource;
         }
         else {
             imgSource = await convertToBase64(cache, imgURL);
@@ -112,12 +150,12 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
          * Writing files does not work in Vercel deployments 🥲
          * Uncomment the following if you have your own Next server setup
          */
-// writeFile(base64File, JSON.stringify(cache), (err) => {
-//     if (err) {
-//         console.error(err.message);
-//         throw new Error("Failed to write file");
-//     }
-// });
+        // writeFile(base64File, JSON.stringify(cache), (err) => {
+        //     if (err) {
+        //         console.error(err.message);
+        //         throw new Error("Failed to write file");
+        //     }
+        // });
 
         //Converting response data to required format
         response = groupBy(response.matchedUser.badges, "category");
@@ -137,7 +175,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
             res.setHeader('Cache-Control', 'max-age=604800, stale-while-revalidate=86400');
             res.setHeader('Content-Type', 'image/svg+xml');
             res.statusCode = 200;
-            res.send(generateSvg(responseData, username, imgSource, theme, border, animated));
+            res.send(generateSvg(responseData, anon === 'true' ? '' : username, imgSource, theme, border, animated));
         }
     }
     catch (err: any) {
@@ -147,6 +185,37 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
             body: 'The user does not exist 🔍 or some other error occurred 😔'
         });
     }
+}
+
+const getCreationTime = (creationDate: any): number => {
+    if (typeof creationDate === 'number' && Number.isFinite(creationDate)) {
+        return creationDate < 1e12 ? creationDate * 1000 : creationDate;
+    }
+
+    if (typeof creationDate === 'string') {
+        const asNum = Number(creationDate);
+        if (Number.isFinite(asNum)) {
+            return asNum < 1e12 ? asNum * 1000 : asNum;
+        }
+        const parsed = Date.parse(creationDate);
+        return Number.isNaN(parsed) ? 0 : parsed;
+    }
+
+    return 0;
+}
+
+const limitBadgesToLatest = (badges: Array<any>, limit: number): Array<any> => {
+    if (!Array.isArray(badges)) return [];
+    if (!Number.isFinite(limit) || limit <= 0) return badges;
+    if (badges.length <= limit) return badges;
+
+    const withTimes = badges.map((badge) => ({ badge, t: getCreationTime(badge?.creationDate) }));
+    const hasAnyTime = withTimes.some(({ t }) => t > 0);
+
+    if (!hasAnyTime) return badges.slice(0, limit);
+
+    withTimes.sort((a, b) => b.t - a.t);
+    return withTimes.slice(0, limit).map(({ badge }) => badge);
 }
 
 const convertToBase64 = async (cache: any, imgURL: string) => {

@@ -35,6 +35,8 @@ const Home: NextPage = () => {
     let filter = e.target.filter.value;
     let animated = e.target.animated.value;
     let border = e.target.border.value;
+    let anon = e.target.anon.value;
+    let limit = e.target.limit.value;
     if (username) {
       let href = `/api?username=${username}`
       if (theme)
@@ -45,6 +47,10 @@ const Home: NextPage = () => {
         href += `&border=${border}`
       if (animated)
         href += `&animated=${animated}`
+      if (anon === 'true')
+        href += `&anon=${anon}`
+      if (limit)
+        href += `&limit=${limit}`
       router.push(href)
         .then(() => setLoading(false))
         .catch(err => {
@@ -78,10 +84,17 @@ const Home: NextPage = () => {
                 return <option key={index} value={filter.value}>{filter.name}</option>
               })}
             </select>
+            <label htmlFor="limit">🔢 Latest badges</label>
+            <input id="limit" name="limit" type="number" min="1" placeholder="e.g. 10" />
             <label htmlFor="animated">✨ Animated Badges</label>
             <select name='animated'>
               <option value='true'>Yes</option>
               <option value='false'>No</option>
+            </select>
+            <label htmlFor="anon">🙈 Hide username</label>
+            <select name='anon'>
+              <option value='false'>No</option>
+              <option value='true'>Yes</option>
             </select>
             <label htmlFor="border">🖌️ Border</label>
             <select name='border'>

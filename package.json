@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "update-cache": "node scripts/update-badge-cache.js"
   },
   "dependencies": {
     "@vercel/analytics": "^1.5.0",
