@@ -19,7 +19,7 @@
 </div>
 
 <div align="center">
-<img src="https://leetcode-badge-showcase.vercel.app/api?username=kevzpeter&filter=annual" />
+<img src="https://leetcode-badge-showcase.vercel.app/api?username=kevzpeter&filter=annual&limit=8&animated=true" />
 </div>
 
 ## 🚀 Add to your README page
@@ -38,26 +38,15 @@ Or even this way ⤵️
 ![LeetCode Badges](https://leetcode-badge-showcase.vercel.app/api?username={your-leetcode-username})
 ```
 
-For example, if your Leetcode username is "kevzpeter", add the following line:
-
-```mark
-![LeetCode Badges](https://leetcode-badge-showcase.vercel.app/api?username=kevzpeter&animated=true)
-```
-
-👉🏼 _Image not rendering? Simply refresh the page!_
 <br/>
 
 ## ✨ Animated Badges
 
-To animate your badges in the showcase, add the parameter _animated_ to the url and set its value to `true`:
+By default, all badges are static. To animate your badges in the showcase, add the parameter _animated_ to the url and set its value to `true`:
 
 ```html
 <img src="https://leetcode-badge-showcase.vercel.app/api?username={your-leetcode-username}&animated=true" alt="LeetCode Badges" />
 ```
-
-### Example
-
-![LeetCode Badges](https://leetcode-badge-showcase.vercel.app/api?username=kevzpeter&animated=true&filter=annual)
 
 ## 🎨 Themes
 
