@@ -19,7 +19,9 @@
 </div>
 
 <div align="center">
-<img src="https://leetcode-badge-showcase.vercel.app/api?username=kevzpeter&filter=annual&limit=8&animated=true" />
+<a href="https://leetcode.com/kevzpeter/">
+  <img src="https://leetcode-badge-showcase.vercel.app/api?username=kevzpeter&filter=annual&limit=8&animated=true" />
+</a>
 </div>
 
 ## 🚀 Add to your README page
@@ -61,17 +63,17 @@ Simply add the _theme_ parameter to the url like so:
 
 ### Examples
 
-|                                                  |                                                                 |
-| :----------------------------------------------: | :-------------------------------------------------------------: |
-|          `light` <br /> ![light][light]          |                   `dark` <br /> ![dark][dark]                   |
-| `github-dark` <br /> ![github-dark][github-dark] |              `monokai` <br /> ![monokai][monokai]               |
-|  `tokyonight` <br /> ![tokyonight][tokyonight]   |             `nightowl` <br /> ![nightowl][nightowl]             |
-|       `onedark` <br /> ![onedark][onedark]       | `shades-of-purple` <br /> ![shades-of-purple][shades-of-purple] |
-|       `dracula` <br /> ![dracula][dracula]       |              `cobalt2` <br /> ![cobalt2][cobalt2]               |
-|             `sky` <br /> ![sky][sky]             |                 `beach` <br /> ![beach][beach]                  |
-| `purple-gang` <br /> ![purple-gang][purple-gang] |                   `mint` <br /> ![mint][mint]                   |
-|          `leafy` <br /> ![leafy][leafy]          |                 `black` <br /> ![black][black]                  |
-| `transparent` <br /> ![transparent][transparent] |                                                                 |
+|                                                                                     |                                                                                                    |
+| :---------------------------------------------------------------------------------: | :------------------------------------------------------------------------------------------------: |
+|          `light` <br /> [![light][light]](https://leetcode.com/kevzpeter/)          |                   `dark` <br /> [![dark][dark]](https://leetcode.com/kevzpeter/)                   |
+| `github-dark` <br /> [![github-dark][github-dark]](https://leetcode.com/kevzpeter/) |              `monokai` <br /> [![monokai][monokai]](https://leetcode.com/kevzpeter/)               |
+|  `tokyonight` <br /> [![tokyonight][tokyonight]](https://leetcode.com/kevzpeter/)   |             `nightowl` <br /> [![nightowl][nightowl]](https://leetcode.com/kevzpeter/)             |
+|       `onedark` <br /> [![onedark][onedark]](https://leetcode.com/kevzpeter/)       | `shades-of-purple` <br /> [![shades-of-purple][shades-of-purple]](https://leetcode.com/kevzpeter/) |
+|       `dracula` <br /> [![dracula][dracula]](https://leetcode.com/kevzpeter/)       |              `cobalt2` <br /> [![cobalt2][cobalt2]](https://leetcode.com/kevzpeter/)               |
+|             `sky` <br /> [![sky][sky]](https://leetcode.com/kevzpeter/)             |                 `beach` <br /> [![beach][beach]](https://leetcode.com/kevzpeter/)                  |
+| `purple-gang` <br /> [![purple-gang][purple-gang]](https://leetcode.com/kevzpeter/) |                   `mint` <br /> [![mint][mint]](https://leetcode.com/kevzpeter/)                   |
+|          `leafy` <br /> [![leafy][leafy]](https://leetcode.com/kevzpeter/)          |                 `black` <br /> [![black][black]](https://leetcode.com/kevzpeter/)                  |
+| `transparent` <br /> [![transparent][transparent]](https://leetcode.com/kevzpeter/) |                                                                                                    |
 
 [light]: https://leetcode-badge-showcase.vercel.app/api?username=kevzpeter&theme=light&filter=study&limit=4
 [dark]: https://leetcode-badge-showcase.vercel.app/api?username=kevzpeter&theme=dark&filter=study&limit=4
@@ -101,13 +103,13 @@ Wanna only show a specific set of badges ? Add a _filter_ parameter like so :
 <img src="https://leetcode-badge-showcase.vercel.app/api?username={your-leetcode-username}&filter={your-filter}" alt="LeetCode Badges" />
 ```
 
-|             Filter              |             Example              |
-| :-----------------------------: | :------------------------------: |
-|   Competitive Badges: `comp`    |   ![Competition Badges][comp]    |
-|       Study Plan: `study`       |   ![Study Plan Badges][study]    |
-|     Annual Badges: `annual`     |     ![Annual Badges][annual]     |
-| Submission Badges: `submission` | ![Submission Badges][submission] |
-|    Daily Challenge: `daily`     | ![Daily Challenge Badges][daily] |
+|             Filter              |                               Example                               |
+| :-----------------------------: | :-----------------------------------------------------------------: |
+|   Competitive Badges: `comp`    |   [![Competition Badges][comp]](https://leetcode.com/kevzpeter/)    |
+|       Study Plan: `study`       |   [![Study Plan Badges][study]](https://leetcode.com/kevzpeter/)    |
+|     Annual Badges: `annual`     |     [![Annual Badges][annual]](https://leetcode.com/kevzpeter/)     |
+| Submission Badges: `submission` | [![Submission Badges][submission]](https://leetcode.com/kevzpeter/) |
+|    Daily Challenge: `daily`     | [![Daily Challenge Badges][daily]](https://leetcode.com/kevzpeter/) |
 
 [comp]: https://leetcode-badge-showcase.vercel.app/api?username=kevzpeter&theme=github-dark&filter=comp&limit=4
 [study]: https://leetcode-badge-showcase.vercel.app/api?username=kevzpeter&theme=github-dark&filter=study&limit=4
