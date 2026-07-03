@@ -8,6 +8,8 @@ on:
 jobs:
   update-cache:
     runs-on: ubuntu-latest
+    env:
+      USERS: ${{ vars.USERS }}
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
@@ -26,7 +28,7 @@ jobs:
 
       - name: Update cache file
         run: |
-          npm run update-cache -- --users "LeoHunt,hc167,u77"
+          npm run update-cache
 
       - name: Commit changes
         id: commit_changes
