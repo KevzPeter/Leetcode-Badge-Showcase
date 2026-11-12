@@ -19,6 +19,7 @@ import {
 } from '@mui/material'
 import { THEME_NAMES, BORDER } from '../utils/config'
 import { Analytics } from "@vercel/analytics/next";
+import { canonicalApiUrl } from '../utils/api-url';
 
 const Home: NextPage = () => {
   const [loading, setLoading] = useState(false)
@@ -55,19 +56,10 @@ const Home: NextPage = () => {
     if (!username) return
 
     setLoading(true)
-    const params = new URLSearchParams({ username })
-
-    if (form.theme) params.set('theme', form.theme)
-    if (form.filter) params.set('filter', form.filter)
-    if (form.border) params.set('border', form.border)
-    if (form.animated) params.set('animated', form.animated)
-    if (form.anon === 'true') params.set('anon', 'true')
-
     const limitValue = String(form.limit ?? '').trim()
-    if (limitValue) params.set('limit', limitValue)
 
     router
-      .push(`/api?${params.toString()}`)
+      .push(canonicalApiUrl({ ...form, username, limit: limitValue }))
       .then(() => setLoading(false))
       .catch((err) => {
         console.error(err)

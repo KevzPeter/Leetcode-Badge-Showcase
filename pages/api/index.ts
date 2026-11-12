@@ -4,12 +4,14 @@ import { groupBy } from 'lodash';
 import { generateSvg } from '../../utils/generateSVG';
 import BadgeIconImg from "../../public/Badge-icon.png";
 import axios from 'axios';
-import { BASEURL, LEETCODE_BASEURL, THEME_NAMES, FILTERS, BORDER } from "../../utils/config";
+import { BASEURL, LEETCODE_BASEURL, FILTERS } from "../../utils/config";
 import { Data, Params, GraphQLResponse } from '../../utils/models';
 import path from 'path';
-import { readFileSync, writeFile } from 'fs';
-import sharp from 'sharp';
+import { readFileSync } from 'fs';
 import { validationSchema } from '../../utils/validation.schema';
+import { canonicalApiUrl } from '../../utils/api-url';
+import { cacheSuccess, noStore } from '../../utils/cache-policy';
+import { encodeStaticImage, encodeGifImage } from '../../utils/badge-images';
 
 let inMemoryCache: any | null = null;
 let inMemoryCacheMtimeMs: number | null = null;
@@ -32,8 +34,12 @@ const readBase64Cache = (base64File: string) => {
 }
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse<Data | string>): Promise<any> {
+    noStore(res);
     try {
-        console.log(`Incoming Request: ${JSON.stringify(req.query)}`);
+        // Even ignored query parameters must not contain ambiguous duplicates.
+        if (Object.values(req.query).some(Array.isArray)) {
+            return res.status(400).json({ status: 'error', body: 'Duplicate query parameters are not supported' });
+        }
         const { error, value } = validationSchema.validate(req.query);
         if (error) {
             return res.status(400).json({
@@ -41,7 +47,11 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
                 body: error.details.map(detail => detail.message)
             })
         }
-        console.log(value);
+        const canonicalUrl = canonicalApiUrl(value);
+        if (['GET', 'HEAD'].includes(req.method || '') && req.url !== canonicalUrl) {
+            cacheSuccess(res);
+            return res.redirect(307, canonicalUrl);
+        }
         let { username, theme, filter, border, json, animated, anon, limit }: Params = value;
         if (filter) filter = FILTERS[`${filter}`];
 
@@ -65,6 +75,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
 
         const allBadges = response?.matchedUser?.badges ?? [];
         if (allBadges.length === 0) {
+            cacheSuccess(res);
             return res.status(200).json({ status: "success", body: "The user has unlocked 0 badges" });
         }
 
@@ -82,7 +93,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
         response.matchedUser.badges = badgesToShow;
 
         /**
-         * "public/files/base64.txt" is a file containing a stringified JSON object of 
+         * "public/cache/base64.txt" is a file containing a stringified JSON object of
          *  all Leetcode badge icons in its base64 format
          * 
          *  It acts as a cache, helping to significantly reduce API latency issues.
@@ -110,7 +121,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
                 }
                 catch (err) {
                     // fallback to default icon
-                    badge.icon = BadgeIconImg;
+                    badge.icon = BadgeIconImg.src;
                 }
             }
             // convert GIF if available
@@ -144,7 +155,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
             cache[imgURL] = imgSource;
         }
         else {
-            imgSource = await convertToBase64(cache, imgURL);
+            imgSource = await convertToBase64(cache, imgURL, true);
         }
         /**
          * Writing files does not work in Vercel deployments 🥲
@@ -169,16 +180,19 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
             return res.status(400).json({ status: 'error', body: "No badges found with given filter or some other error occurred 😕" });
         }
         else if (json?.toLowerCase() === 'true') {
+            cacheSuccess(res);
             return res.status(200).json({ status: "success", body: responseData });
         }
         else {
-            res.setHeader('Cache-Control', 'max-age=604800, stale-while-revalidate=86400');
+            const svg = generateSvg(responseData, anon === 'true' ? '' : username, imgSource, theme, border, animated);
+            cacheSuccess(res);
             res.setHeader('Content-Type', 'image/svg+xml');
             res.statusCode = 200;
-            res.send(generateSvg(responseData, anon === 'true' ? '' : username, imgSource, theme, border, animated));
+            res.send(svg);
         }
     }
     catch (err: any) {
+        noStore(res);
         console.error(err.message);
         return res.status(500).json({
             status: 'error',
@@ -218,13 +232,11 @@ const limitBadgesToLatest = (badges: Array<any>, limit: number): Array<any> => {
     return withTimes.slice(0, limit).map(({ badge }) => badge);
 }
 
-const convertToBase64 = async (cache: any, imgURL: string) => {
+const convertToBase64 = async (cache: any, imgURL: string, logo = false) => {
     const { data } = await axios.get<string>(imgURL, {
         responseType: 'arraybuffer',
     });
-    const webpBuffer = await sharp(data).webp().toBuffer();
-    let base64String = webpBuffer.toString('base64');
-    base64String = `data:image/webp;base64,${base64String}`;
+    const base64String = await encodeStaticImage(data, logo);
     cache[imgURL] = base64String;
     return base64String;
 }
@@ -233,9 +245,7 @@ const convertGifToBase64 = async (cache: any, imgURL: string) => {
     const { data } = await axios.get<Buffer>(imgURL, {
         responseType: 'arraybuffer',
     });
-    const resizedGifBuffer = await sharp(data, { animated: true }).resize({ width: 48, height: 48 }).gif().toBuffer();
-    let base64String = resizedGifBuffer.toString('base64');
-    base64String = `data:image/gif;base64,${base64String}`;
+    const base64String = await encodeGifImage(data);
     cache[imgURL] = base64String;
     return base64String;
 }
