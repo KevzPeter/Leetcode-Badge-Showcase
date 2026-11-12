@@ -5,21 +5,29 @@ on:
     - cron: "0 0 * * 1"
   workflow_dispatch:
 
+permissions:
+  contents: write
+
+concurrency:
+  group: badge-cache-${{ github.ref }}
+  cancel-in-progress: false
+
 jobs:
   update-cache:
     runs-on: ubuntu-latest
     env:
       USERS: ${{ vars.USERS }}
+      TARGET_BRANCH: ${{ github.ref_name }}
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
+      - name: Checkout triggering branch
+        uses: actions/checkout@v4
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           fetch-depth: 0
-          ref: main
+          ref: ${{ github.ref }}
 
       - name: Setup Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: 20
 
@@ -35,8 +43,8 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          if [ -n "$(git status --porcelain)" ]; then
-            git add .
+          git add -- public/cache/base64.txt
+          if ! git diff --cached --quiet -- public/cache/base64.txt; then
             git commit -m "Update cache file"
             echo "changes_detected=true" >> $GITHUB_ENV
           else
@@ -46,4 +54,4 @@ jobs:
 
       - name: Push changes
         if: env.changes_detected == 'true'
-        run: git push origin main
+        run: git push origin "HEAD:$TARGET_BRANCH"

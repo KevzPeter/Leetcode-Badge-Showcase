@@ -53,7 +53,7 @@ By default, all badges are static. To animate your badges in the showcase, add t
 ## 🎨 Themes
 
 Want to spice up the look and feel of your badge showcase?
-You can choose your favorite among 16 different themes!
+You can choose your favorite among 17 different themes!
 
 Simply add the _theme_ parameter to the url like so:
 
@@ -75,23 +75,23 @@ Simply add the _theme_ parameter to the url like so:
 |          `leafy` <br /> [![leafy][leafy]](https://leetcode.com/kevzpeter/)          |                 `black` <br /> [![black][black]](https://leetcode.com/kevzpeter/)                  |
 | `transparent` <br /> [![transparent][transparent]](https://leetcode.com/kevzpeter/) |                                                                                                    |
 
-[light]: https://leetcode-badge-showcase.vercel.app/api?username=kevzpeter&theme=light&filter=study&limit=4
-[dark]: https://leetcode-badge-showcase.vercel.app/api?username=kevzpeter&theme=dark&filter=study&limit=4
-[github-dark]: https://leetcode-badge-showcase.vercel.app/api?username=kevzpeter&theme=github-dark&filter=study&limit=4
-[monokai]: https://leetcode-badge-showcase.vercel.app/api?username=kevzpeter&theme=monokai&filter=study&limit=4
-[tokyonight]: https://leetcode-badge-showcase.vercel.app/api?username=kevzpeter&theme=tokyonight&filter=study&limit=4
-[nightowl]: https://leetcode-badge-showcase.vercel.app/api?username=kevzpeter&theme=nightowl&filter=study&limit=4
-[onedark]: https://leetcode-badge-showcase.vercel.app/api?username=kevzpeter&theme=onedark&filter=study&limit=4
-[shades-of-purple]: https://leetcode-badge-showcase.vercel.app/api?username=kevzpeter&theme=shades-of-purple&filter=study&limit=4
-[dracula]: https://leetcode-badge-showcase.vercel.app/api?username=kevzpeter&theme=dracula&filter=study&limit=4
-[cobalt2]: https://leetcode-badge-showcase.vercel.app/api?username=kevzpeter&theme=cobalt2&filter=study&limit=4
-[sky]: https://leetcode-badge-showcase.vercel.app/api?username=kevzpeter&theme=sky&filter=study&limit=4
-[beach]: https://leetcode-badge-showcase.vercel.app/api?username=kevzpeter&theme=beach&filter=study&limit=4
-[purple-gang]: https://leetcode-badge-showcase.vercel.app/api?username=kevzpeter&theme=purple-gang&filter=study&limit=4
-[mint]: https://leetcode-badge-showcase.vercel.app/api?username=kevzpeter&theme=mint&filter=study&limit=4
-[leafy]: https://leetcode-badge-showcase.vercel.app/api?username=kevzpeter&theme=leafy&filter=study&limit=4
-[black]: https://leetcode-badge-showcase.vercel.app/api?username=kevzpeter&theme=black&filter=study&limit=4
-[transparent]: https://leetcode-badge-showcase.vercel.app/api?username=kevzpeter&theme=transparent&filter=study&limit=4
+[light]: images/examples/theme-light.png
+[dark]: images/examples/theme-dark.png
+[github-dark]: images/examples/theme-github-dark.png
+[monokai]: images/examples/theme-monokai.png
+[tokyonight]: images/examples/theme-tokyonight.png
+[nightowl]: images/examples/theme-nightowl.png
+[onedark]: images/examples/theme-onedark.png
+[shades-of-purple]: images/examples/theme-shades-of-purple.png
+[dracula]: images/examples/theme-dracula.png
+[cobalt2]: images/examples/theme-cobalt2.png
+[sky]: images/examples/theme-sky.png
+[beach]: images/examples/theme-beach.png
+[purple-gang]: images/examples/theme-purple-gang.png
+[mint]: images/examples/theme-mint.png
+[leafy]: images/examples/theme-leafy.png
+[black]: images/examples/theme-black.png
+[transparent]: images/examples/theme-transparent.png
 
 <br/>
 
@@ -105,17 +105,19 @@ Wanna only show a specific set of badges ? Add a _filter_ parameter like so :
 
 |             Filter              |                               Example                               |
 | :-----------------------------: | :-----------------------------------------------------------------: |
-|   Competitive Badges: `comp`    |   [![Competition Badges][comp]](https://leetcode.com/kevzpeter/)    |
+|   Competitive Badges: `comp`    |   [![Competition Badges][comp]](https://leetcode.com/LeoHunt/)    |
 |       Study Plan: `study`       |   [![Study Plan Badges][study]](https://leetcode.com/kevzpeter/)    |
 |     Annual Badges: `annual`     |     [![Annual Badges][annual]](https://leetcode.com/kevzpeter/)     |
 | Submission Badges: `submission` | [![Submission Badges][submission]](https://leetcode.com/kevzpeter/) |
 |    Daily Challenge: `daily`     | [![Daily Challenge Badges][daily]](https://leetcode.com/kevzpeter/) |
 
-[comp]: https://leetcode-badge-showcase.vercel.app/api?username=kevzpeter&theme=github-dark&filter=comp&limit=4
-[study]: https://leetcode-badge-showcase.vercel.app/api?username=kevzpeter&theme=github-dark&filter=study&limit=4
-[annual]: https://leetcode-badge-showcase.vercel.app/api?username=kevzpeter&theme=github-dark&filter=annual&limit=8
-[submission]: https://leetcode-badge-showcase.vercel.app/api?username=kevzpeter&theme=github-dark&filter=submission&limit=8
-[daily]: https://leetcode-badge-showcase.vercel.app/api?username=kevzpeter&theme=github-dark&filter=daily&limit=8
+[comp]: images/examples/filter-comp.png
+[study]: images/examples/filter-study.png
+[annual]: images/examples/filter-annual.png
+[submission]: images/examples/filter-submission.png
+[daily]: images/examples/filter-daily.png
+
+These examples are repository-hosted screenshots; only the animated showcase above is fetched live. The competition example uses `LeoHunt`, who has a competition badge.
 
 > [!TIP]
 > Want to hide the border? add the parameter `border` to the url and set its value to `no-border`:
@@ -148,6 +150,38 @@ You can combine it with other parameters (e.g. filter + animated):
 ```
 
 <!-- BUILT WITH -->
+
+## 📦 Caching and bandwidth
+
+- Successful badge, JSON, and image-proxy responses are fresh in Vercel's CDN for **7 days**. The next request can serve stale content while refreshing it in the background for up to **1 additional day**. Browser caching is also 7 days, so newly earned badges are not immediately visible. Cache storage is best-effort, not guaranteed for the full lifetime.
+- Static badges are embedded as WebP at up to 96×96 for their 48×48 display size. The logo is at most 72×72. Animated GIFs retain their existing 48×48 encoding.
+- The generator omits default URL options. Equivalent GET/HEAD URLs redirect to a canonical URL before fetching badges. Unknown options are ignored and removed, so adding a random query parameter is **not** a supported cache-refresh mechanism. Duplicate parameters are rejected.
+- CDN hits reduce Fast Origin Transfer, but still use CDN-to-visitor transfer. Repository-hosted README examples avoid Vercel traffic entirely.
+
+### Restricted image proxy
+
+`/api/proxy?img={encoded-image-url}` returns a plain-text image data URL. It accepts GET/HEAD and only HTTPS images on the exact hosts `leetcode.com` and `assets.leetcode.com`, with no credentials or nonstandard ports. Redirects are limited to three and must pass the same host and public-address checks at every hop.
+
+Downloads have a 10-second total deadline and a 5 MiB limit on both encoded and decompressed bytes. The final base64 data URL is also capped at 4 MiB (roughly 3 MiB of image bytes) to stay below Vercel's buffered Function response limit. Supported content is PNG, JPEG, WebP, or GIF with at most 16 megapixels across frames. Returned data URLs use the verified image MIME type instead of always claiming PNG. Invalid destinations return 400, oversized downloads/responses 413, upstream/unsupported-image failures 502, and timeouts 504. Errors are not cached. The main `/api?username=...` endpoint does not use this proxy.
+
+### Maintaining the asset cache
+
+The weekly GitHub workflow discovers new badges from active users configured in the repository variable `USERS` (comma-separated; fallback: `LeoHunt,hc167,u77`). It retains existing assets, optimizes newly discovered static images using the runtime encoding policy, and commits only actual cache changes. Manual dispatch updates its selected branch rather than always writing to `main`. Scheduled cache commits can still trigger deployments; no-change runs do not create commits.
+
+```sh
+npm run update-cache
+npm run update-cache -- --users "LeoHunt,hc167,u77"
+# One-time migration of oversized existing static entries, including older/non-discovery assets:
+npm run update-cache -- --rebuild-static --skip-discovery
+# Offline migration from existing cached image bytes instead of original sources:
+npm run update-cache -- --rebuild-static --skip-discovery --cached-only
+```
+
+Migration preserves GIF entries and is idempotent. It prefers original sources, falling back to cached image bytes when unavailable. Partial failures are reported with a nonzero exit status without deleting usable entries.
+
+To regenerate README screenshots, start the app on port 3100 (`npm run dev -- --port 3100`) and run `npm run capture-examples` in another terminal. Install Chromium with `npx playwright install chromium`, or set `CHROME_PATH` to an installed Chrome executable (the usual Windows Chrome path is detected automatically). Optional `CAPTURE_BASE_URL` and `CAPTURE_USERNAME` override the local origin and sample user.
+
+Run `npm test`, `npm run lint`, `npx tsc --noEmit`, and `npm run build` before submitting changes.
 
 ## 🔧 Built With
 
